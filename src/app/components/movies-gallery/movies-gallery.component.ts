@@ -16,6 +16,7 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   constructor(private subjectMessage: SubjectMessangerService) { }
 
   ngOnInit() {
+    this.getVideoFromLocalStorage()
     this.msgSub = this.subjectMessage.getMessage().subscribe((video: Video | any) => {
       this.pushVideoToList(video);
     })
@@ -26,6 +27,11 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   }
   pushVideoToLocalStorage() {
     localStorage.setItem('videoList', JSON.stringify(this.videoList))
+  }
+  getVideoFromLocalStorage() {
+    if (localStorage.getItem('videoList')) {
+      this.videoList = JSON.parse(localStorage.getItem('videoList')!)
+    }
   }
   ngOnDestroy(): void {
     if (this.msgSub) {
