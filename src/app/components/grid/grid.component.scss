@@ -7,7 +7,6 @@ header {
   width: 100%;
   position: absolute;
   background-color: brown;
-  z-index: 10;
 }
 footer {
   height: 10%;
@@ -22,6 +21,7 @@ nav {
   position: absolute;
   background-color: yellow;
   top: 15%;
+  z-index: 10;
 }
 .asideLeft {
   height: 100%;
