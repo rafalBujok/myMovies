@@ -1,10 +1,17 @@
-<mat-grid-list cols="6" rowHeight="10%">
-  <mat-grid-tile
-    *ngFor="let tile of tiles"
-    [colspan]="tile.cols"
-    [rowspan]="tile.rows"
-    [style.background]="tile.color"
-  >
-    {{ tile.text }}
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="container">
+  <header>
+    <app-header></app-header>
+  </header>
+  <nav>
+    <app-nav></app-nav>
+  </nav>
+  <aside class="asideLeft"></aside>
+  <div class="outlet">
+    <router-outlet></router-outlet>
+  </div>
+
+  <aside class="asideRight"></aside>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</div>
