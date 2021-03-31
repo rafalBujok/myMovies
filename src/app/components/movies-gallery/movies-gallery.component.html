@@ -1,1 +1,5 @@
-<p>movies-gallery works!</p>
+<app-add-movie></app-add-movie>
+
+<div *ngFor="let vid of videoList">
+  {{ vid | json }}
+</div>

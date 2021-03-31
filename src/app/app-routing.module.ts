@@ -12,10 +12,6 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'add-movie',
-    component: AddMovieComponent
-  },
-  {
     path: 'favorites',
     component: FavoritesComponent
   },

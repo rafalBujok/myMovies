@@ -10,6 +10,9 @@ import { PageNotFoundComponent } from '../components/page-not-found/page-not-fou
 import { AddMovieComponent } from '../components/add-movie/add-movie.component';
 import { MoviesGalleryComponent } from '../components/movies-gallery/movies-gallery.component';
 import { FavoritesComponent } from '../components/favorites/favorites.component';
+import { MovieApiService } from '../../app/services/movie-api.service';
+import { HttpClientModule } from '@angular/common/http';
+import { SubjectMessangerService } from '../services/subject-messanger.service';
 
 
 
@@ -29,6 +32,7 @@ import { FavoritesComponent } from '../components/favorites/favorites.component'
     CommonModule,
     MatGridListModule,
     AppRoutingModule,
+    HttpClientModule
 
   ],
   exports: [
@@ -41,6 +45,7 @@ import { FavoritesComponent } from '../components/favorites/favorites.component'
     MoviesGalleryComponent,
     AddMovieComponent,
     FavoritesComponent,
-  ]
+  ],
+  providers: [MovieApiService, SubjectMessangerService],
 })
 export class SharedModule { }
