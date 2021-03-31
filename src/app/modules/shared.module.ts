@@ -13,6 +13,8 @@ import { FavoritesComponent } from '../components/favorites/favorites.component'
 import { MovieApiService } from '../../app/services/movie-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SubjectMessangerService } from '../services/subject-messanger.service';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -32,7 +34,9 @@ import { SubjectMessangerService } from '../services/subject-messanger.service';
     CommonModule,
     MatGridListModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    FormsModule
 
   ],
   exports: [
@@ -45,6 +49,8 @@ import { SubjectMessangerService } from '../services/subject-messanger.service';
     MoviesGalleryComponent,
     AddMovieComponent,
     FavoritesComponent,
+    MatInputModule,
+    FormsModule
   ],
   providers: [MovieApiService, SubjectMessangerService],
 })

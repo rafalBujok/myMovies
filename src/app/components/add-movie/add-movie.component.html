@@ -1,1 +1,6 @@
-<button (click)="getMovie('9CrPI8o7aAA')">Dodaj</button>
+<mat-form-field>
+  <mat-label>Gimme ID</mat-label>
+  <input matInput type="text" [(ngModel)]="id" />
+</mat-form-field>
+
+<button (click)="getMovie(id)">Add</button>

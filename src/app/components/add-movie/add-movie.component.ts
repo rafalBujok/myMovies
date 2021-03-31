@@ -13,6 +13,7 @@ export class AddMovieComponent {
   video: Video = {
     id: '', title: '', viewCount: '', likeCount: '', publishedAt: '', thumbnail: ''
   }
+  id: string = ''
   constructor(private api: MovieApiService, private subjectMessage: SubjectMessangerService) { }
   getMovie(id: string) {
     this.api.getVideoFromYoutube(id).pipe(take(1)).subscribe((val: any) => {
