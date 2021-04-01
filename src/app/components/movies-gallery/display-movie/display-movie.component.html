@@ -1,0 +1,23 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>{{ video.title }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="video.thumbnail" alt="video thumbnail" />
+  <mat-card-content>
+    <p class="icon">
+      <mat-icon aria-hidden="false" aria-label="thumbs up SVG icon"
+        >thumb_up_off_alt</mat-icon
+      >
+    </p>
+
+    <p class="text">&nbsp;{{ video.likeCount | shortNumber }}&nbsp;•</p>
+    <p class="text">
+      &nbsp;{{ video.viewCount | shortNumber }}&nbsp;views&nbsp;•
+    </p>
+    <p class="text">&nbsp;{{ video.publishedAt | date }}&nbsp;</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="favoriteVideo(video.id)">Favorite</button>
+    <button mat-button (click)="removeVideo(video.id)">Delete</button>
+  </mat-card-actions>
+</mat-card>

@@ -17,22 +17,23 @@ footer {
 }
 .asideLeft {
   height: 100%;
-  width: 15%;
+  width: 5%;
   position: absolute;
   background-color: transparent;
 }
 .asideRight {
   height: 100%;
-  width: 15%;
+  width: 5%;
   position: absolute;
   background-color: transparent;
   right: 0;
 }
 .outlet {
   position: absolute;
-  background-color: cadetblue;
+  background-color: transparent;
   top: 15%;
-  left: 15%;
+  left: 5%;
   height: 75%;
-  width: 70%;
+  width: 90%;
+  overflow-y: auto;
 }

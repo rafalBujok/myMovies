@@ -11,9 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { SubjectMessangerService } from '../services/subject-messanger.service';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { DisplayMoviesComponent } from '../components/movies-gallery/display-movies/display-movies.component';
-import { DisplayMovieComponent } from '../components/movies-gallery/display-movies/display-movie/display-movie.component';
+
+import { DisplayMovieComponent } from '../components/movies-gallery/display-movie/display-movie.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { ShortNumberPipe } from '../pipes/short-number.pipe';
+
 
 
 
@@ -25,8 +30,8 @@ import { MatButtonModule } from '@angular/material/button';
       FooterComponent,
       MoviesGalleryComponent,
       AddMovieComponent,
-      DisplayMoviesComponent,
       DisplayMovieComponent,
+      ShortNumberPipe
     ],
   imports: [
     CommonModule,
@@ -35,7 +40,10 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     MatInputModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatIconModule
 
   ],
   exports: [
@@ -46,9 +54,12 @@ import { MatButtonModule } from '@angular/material/button';
     AddMovieComponent,
     MatInputModule,
     FormsModule,
-    DisplayMoviesComponent,
     DisplayMovieComponent,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatIconModule,
+    ShortNumberPipe
   ],
   providers: [MovieApiService, SubjectMessangerService],
 })
