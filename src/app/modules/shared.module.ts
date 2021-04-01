@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ShortNumberPipe } from '../pipes/short-number.pipe';
 import { GridMovieComponent } from '../components/movies-gallery/grid-movie/grid-movie.component';
 import { ListMovieComponent } from '../components/movies-gallery/list-movie/list-movie.component';
+import { DisplayListMovieComponent } from '../components/movies-gallery/list-movie/display-list-movie/display-list-movie.component';
 
 
 
@@ -35,7 +36,8 @@ import { ListMovieComponent } from '../components/movies-gallery/list-movie/list
       DisplayGridMovieComponent,
       ShortNumberPipe,
       GridMovieComponent,
-      ListMovieComponent
+      ListMovieComponent,
+      DisplayListMovieComponent
     ],
   imports: [
     CommonModule,
@@ -65,7 +67,8 @@ import { ListMovieComponent } from '../components/movies-gallery/list-movie/list
     MatIconModule,
     ShortNumberPipe,
     GridMovieComponent,
-    ListMovieComponent
+    ListMovieComponent,
+    DisplayListMovieComponent
   ],
   providers: [MovieApiService, SubjectMessangerService],
 })

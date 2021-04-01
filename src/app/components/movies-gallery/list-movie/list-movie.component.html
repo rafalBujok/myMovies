@@ -1,1 +1,6 @@
-<p>list-movie works!</p>
+<div *ngFor="let video of videoList">
+  <app-display-list-movie
+    class="videoItem"
+    [video]="video"
+  ></app-display-list-movie>
+</div>

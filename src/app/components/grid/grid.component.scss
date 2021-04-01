@@ -15,25 +15,13 @@ footer {
   background-color: brown;
   bottom: 0;
 }
-.asideLeft {
-  height: 100%;
-  width: 5%;
-  position: absolute;
-  background-color: transparent;
-}
-.asideRight {
-  height: 100%;
-  width: 5%;
-  position: absolute;
-  background-color: transparent;
-  right: 0;
-}
+
 .outlet {
   position: absolute;
   background-color: transparent;
   top: 15%;
-  left: 5%;
+  left: 0%;
   height: 75%;
-  width: 90%;
+  width: 100%;
   overflow-y: auto;
 }
