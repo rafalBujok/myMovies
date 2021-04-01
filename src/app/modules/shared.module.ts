@@ -4,17 +4,16 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { GridComponent } from '../components/grid/grid.component';
 import { FooterComponent } from '../components/grid/footer/footer.component';
 import { HeaderComponent } from '../components/grid/header/header.component';
-import { AppRoutingModule } from '../app-routing.module';
-import { NavComponent } from '../components/grid/nav/nav.component';
-import { PageNotFoundComponent } from '../components/page-not-found/page-not-found.component';
 import { AddMovieComponent } from '../components/add-movie/add-movie.component';
 import { MoviesGalleryComponent } from '../components/movies-gallery/movies-gallery.component';
-import { FavoritesComponent } from '../components/favorites/favorites.component';
 import { MovieApiService } from '../../app/services/movie-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SubjectMessangerService } from '../services/subject-messanger.service';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { DisplayMoviesComponent } from '../components/movies-gallery/display-movies/display-movies.component';
+import { DisplayMovieComponent } from '../components/movies-gallery/display-movies/display-movie/display-movie.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -24,33 +23,32 @@ import { FormsModule } from '@angular/forms';
       GridComponent,
       HeaderComponent,
       FooterComponent,
-      NavComponent,
-      PageNotFoundComponent,
       MoviesGalleryComponent,
       AddMovieComponent,
-      FavoritesComponent,
+      DisplayMoviesComponent,
+      DisplayMovieComponent,
     ],
   imports: [
     CommonModule,
     MatGridListModule,
-    AppRoutingModule,
+
     HttpClientModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
 
   ],
   exports: [
     GridComponent,
     HeaderComponent,
     FooterComponent,
-    NavComponent,
-    AppRoutingModule,
-    PageNotFoundComponent,
     MoviesGalleryComponent,
     AddMovieComponent,
-    FavoritesComponent,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    DisplayMoviesComponent,
+    DisplayMovieComponent,
+    MatButtonModule
   ],
   providers: [MovieApiService, SubjectMessangerService],
 })

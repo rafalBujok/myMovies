@@ -33,6 +33,10 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
       this.videoList = JSON.parse(localStorage.getItem('videoList')!)
     }
   }
+  clearList() {
+    this.videoList = [];
+    localStorage.clear();
+  }
   ngOnDestroy(): void {
     if (this.msgSub) {
       this.msgSub.unsubscribe()

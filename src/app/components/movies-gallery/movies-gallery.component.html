@@ -1,5 +1,4 @@
 <app-add-movie></app-add-movie>
 
-<div *ngFor="let vid of videoList">
-  {{ vid | json }}
-</div>
+<app-display-movies [videoList]="videoList"></app-display-movies>
+<button (click)="clearList()">clear all</button>
