@@ -15,7 +15,7 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   msgSub: Subscription | undefined;
   constructor(private subjectMessage: SubjectMessangerService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getVideoFromLocalStorage()
     this.msgSub = this.subjectMessage.getMessage().subscribe((video: Video | any) => {
       this.pushVideoToList(video);
@@ -25,14 +25,35 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     this.videoList.push(video)
     this.pushVideoToLocalStorage();
   }
-  pushVideoToLocalStorage() {
+  pushVideoToLocalStorage(): void {
     localStorage.setItem('videoList', JSON.stringify(this.videoList))
   }
-  getVideoFromLocalStorage() {
+  getVideoFromLocalStorage(): void {
     if (localStorage.getItem('videoList')) {
       this.videoList = JSON.parse(localStorage.getItem('videoList')!)
     }
   }
+  removeVideo(videoId: string): void {
+
+    for (let i in this.videoList) {
+      if (this.videoList[i].id === videoId) {
+        this.videoList.splice(Number(i), 1);
+        this.pushVideoToLocalStorage();
+        break;
+      }
+    }
+  }
+  favoriteVideo(videoId: string): void {
+
+    for (let i in this.videoList) {
+      if (this.videoList[i].id === videoId) {
+        this.videoList[i].favorite = true;
+        this.pushVideoToLocalStorage();
+        break;
+      }
+    }
+  }
+
   clearList() {
     this.videoList = [];
     localStorage.clear();
