@@ -11,6 +11,8 @@ import { SubjectMessangerService } from 'src/app/services/subject-messanger.serv
 })
 export class MoviesGalleryComponent implements OnInit, OnDestroy {
 
+  listTrigger = true;
+  gridTrigger = false;
   videoList: Video[] = [];
   videoSub: Subscription | undefined;
   removeSub: Subscription | undefined;
@@ -66,6 +68,14 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   clearList() {
     this.videoList = [];
     localStorage.clear();
+  }
+  showGrid() {
+    this.gridTrigger = true;
+    this.listTrigger = false;
+  }
+  showList() {
+    this.gridTrigger = false;
+    this.listTrigger = true;
   }
   ngOnDestroy(): void {
     if (this.videoSub) {

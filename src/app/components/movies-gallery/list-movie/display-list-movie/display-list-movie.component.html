@@ -1,0 +1,20 @@
+<mat-card class="card">
+  <mat-grid-list cols="5" rowHeight="90px">
+    <mat-grid-tile colspan="2" rowspan="3">
+      <img mat-card-image [src]="video.thumbnail" alt="video thumbnail"
+    /></mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="1">
+      <h3 class="leftVerticalAlign">{{ video.title }}</h3>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="1">
+      <p>&nbsp;{{ video.likeCount | shortNumber }}&nbsp;•</p>
+      <p>&nbsp;{{ video.viewCount | shortNumber }}&nbsp;views&nbsp;•</p>
+      <p>&nbsp;{{ video.publishedAt | date }}&nbsp;</p></mat-grid-tile
+    >
+    <mat-grid-tile colspan="3" rowspan="1">
+      <button mat-button (click)="favoriteVideo(video.id)">Favorite</button>
+      <button mat-button (click)="removeVideo(video.id)">Delete</button>
+      <button mat-button>Play</button></mat-grid-tile
+    >
+  </mat-grid-list>
+</mat-card>
