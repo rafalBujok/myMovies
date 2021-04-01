@@ -7,12 +7,21 @@ import { Video } from '../models/video';
 })
 export class SubjectMessangerService {
 
-  videoSubject = new Subject()
-
+  videoSubject = new Subject();
+  removeSubject = new Subject();
+  favoriteSubject = new Subject();
   sendMessage(video: Video) {
     this.videoSubject.next(video);
   }
   getMessage() {
     return this.videoSubject.asObservable();
   }
+  removeVideo(id: string) {
+    this.removeSubject.next(id);
+  }
+  favoriteVideo(id: string) {
+    this.favoriteSubject.next(id);
+  }
+
+
 }

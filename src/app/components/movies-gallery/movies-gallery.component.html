@@ -1,10 +1,4 @@
 <app-add-movie></app-add-movie>
-<div *ngFor="let video of videoList">
-  <app-display-movie
-    (deleteVideoEvent)="removeVideo($event)"
-    (favoriteVideoEvent)="favoriteVideo($event)"
-    [video]="video"
-  ></app-display-movie>
-</div>
-
 <button mat-button (click)="clearList()">clear all</button>
+
+<app-grid-movie class="videoItem" [videoList]="videoList"></app-grid-movie>

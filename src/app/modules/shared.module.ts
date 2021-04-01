@@ -12,12 +12,14 @@ import { SubjectMessangerService } from '../services/subject-messanger.service';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 
-import { DisplayMovieComponent } from '../components/movies-gallery/display-movie/display-movie.component';
+import { DisplayGridMovieComponent } from '../components/movies-gallery/grid-movie/display-grid-movie/display-grid-movie.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ShortNumberPipe } from '../pipes/short-number.pipe';
+import { GridMovieComponent } from '../components/movies-gallery/grid-movie/grid-movie.component';
+import { ListMovieComponent } from '../components/movies-gallery/list-movie/list-movie.component';
 
 
 
@@ -30,8 +32,10 @@ import { ShortNumberPipe } from '../pipes/short-number.pipe';
       FooterComponent,
       MoviesGalleryComponent,
       AddMovieComponent,
-      DisplayMovieComponent,
-      ShortNumberPipe
+      DisplayGridMovieComponent,
+      ShortNumberPipe,
+      GridMovieComponent,
+      ListMovieComponent
     ],
   imports: [
     CommonModule,
@@ -54,12 +58,14 @@ import { ShortNumberPipe } from '../pipes/short-number.pipe';
     AddMovieComponent,
     MatInputModule,
     FormsModule,
-    DisplayMovieComponent,
+    DisplayGridMovieComponent,
     MatButtonModule,
     MatPaginatorModule,
     MatCardModule,
     MatIconModule,
-    ShortNumberPipe
+    ShortNumberPipe,
+    GridMovieComponent,
+    ListMovieComponent
   ],
   providers: [MovieApiService, SubjectMessangerService],
 })

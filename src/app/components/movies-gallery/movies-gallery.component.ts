@@ -12,14 +12,23 @@ import { SubjectMessangerService } from 'src/app/services/subject-messanger.serv
 export class MoviesGalleryComponent implements OnInit, OnDestroy {
 
   videoList: Video[] = [];
-  msgSub: Subscription | undefined;
+  videoSub: Subscription | undefined;
+  removeSub: Subscription | undefined;
+  favoriteSub: Subscription | undefined;
   constructor(private subjectMessage: SubjectMessangerService) { }
 
   ngOnInit(): void {
     this.getVideoFromLocalStorage()
-    this.msgSub = this.subjectMessage.getMessage().subscribe((video: Video | any) => {
+    this.videoSub = this.subjectMessage.getMessage().subscribe((video: Video | any) => {
       this.pushVideoToList(video);
     })
+    this.removeSub = this.subjectMessage.removeSubject.subscribe((id: string | any) => {
+      this.removeVideo(id)
+    })
+    this.favoriteSub = this.subjectMessage.favoriteSubject.subscribe((id: string | any) => {
+      this.favoriteVideo(id);
+    })
+
   }
   pushVideoToList(video: Video): void {
     this.videoList.push(video)
@@ -59,8 +68,8 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     localStorage.clear();
   }
   ngOnDestroy(): void {
-    if (this.msgSub) {
-      this.msgSub.unsubscribe()
+    if (this.videoSub) {
+      this.videoSub.unsubscribe()
     }
   }
 
