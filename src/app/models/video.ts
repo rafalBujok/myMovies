@@ -5,4 +5,5 @@ export interface Video {
   likeCount: string;
   publishedAt: string;
   thumbnail: string;
+  favorite?: boolean;
 }
