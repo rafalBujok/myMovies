@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 
 import { Video } from 'src/app/models/video';
@@ -14,9 +15,17 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   listTrigger = true;
   gridTrigger = false;
   videoList: Video[] = [];
+  paginatorList: Video[] = [];
   videoSub: Subscription | undefined;
   removeSub: Subscription | undefined;
   favoriteSub: Subscription | undefined;
+
+  paginatorLength: number = 0;
+  pageIndex: number = 0;
+  pageSize: number = 10;
+  pageSizeOptions: number[] = [5, 10, 25, 100];
+  pageEvent: PageEvent | undefined;
+
   constructor(private subjectMessage: SubjectMessangerService) { }
 
   ngOnInit(): void {
@@ -30,11 +39,28 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     this.favoriteSub = this.subjectMessage.favoriteSubject.subscribe((id: string | any) => {
       this.favoriteVideo(id);
     })
-
+    this.updateDisplay()
+  }
+  getPaginatorLength(): void {
+    this.paginatorLength = this.videoList.length;
+  }
+  handlePageEvent(event: PageEvent): any {
+    this.pageSize = event.pageSize;
+    this.paginatorLength = event.length;
+    this.pageIndex = event.pageIndex;
+    this.getPaginatorList();
+  }
+  getPaginatorList(): void {
+    this.paginatorList = this.videoList.slice(this.pageIndex * this.pageSize, (this.pageIndex * this.pageSize) + this.pageSize)
   }
   pushVideoToList(video: Video): void {
     this.videoList.push(video)
     this.pushVideoToLocalStorage();
+    this.updateDisplay();
+  }
+  updateDisplay(): void {
+    this.getPaginatorList()
+    this.getPaginatorLength()
   }
   pushVideoToLocalStorage(): void {
     localStorage.setItem('videoList', JSON.stringify(this.videoList))
@@ -53,6 +79,7 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
         break;
       }
     }
+    this.updateDisplay();
   }
   favoriteVideo(videoId: string): void {
 
@@ -64,22 +91,29 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
       }
     }
   }
-
-  clearList() {
+  clearList(): void {
     this.videoList = [];
     localStorage.clear();
+    this.updateDisplay()
   }
-  showGrid() {
+  showGrid(): void {
     this.gridTrigger = true;
     this.listTrigger = false;
   }
-  showList() {
+  showList(): void {
     this.gridTrigger = false;
     this.listTrigger = true;
   }
+
   ngOnDestroy(): void {
     if (this.videoSub) {
       this.videoSub.unsubscribe()
+    }
+    if (this.removeSub) {
+      this.removeSub.unsubscribe()
+    }
+    if (this.favoriteSub) {
+      this.favoriteSub.unsubscribe()
     }
   }
 

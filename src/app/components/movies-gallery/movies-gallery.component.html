@@ -1,9 +1,21 @@
 <div class="container">
   <app-add-movie></app-add-movie>
-  <button mat-button (click)="clearList()">clear all</button>
+  <button mat-button (click)="clearList()">Clear all</button>
   <button mat-button (click)="showList()">List</button>
   <button mat-button (click)="showGrid()">Grid</button>
-
-  <app-grid-movie *ngIf="gridTrigger" [videoList]="videoList"></app-grid-movie>
-  <app-list-movie *ngIf="listTrigger" [videoList]="videoList"></app-list-movie>
+  <mat-paginator
+    [length]="paginatorLength"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = handlePageEvent($event)"
+  >
+  </mat-paginator>
+  <app-grid-movie
+    *ngIf="gridTrigger"
+    [videoList]="paginatorList"
+  ></app-grid-movie>
+  <app-list-movie
+    *ngIf="listTrigger"
+    [videoList]="paginatorList"
+  ></app-list-movie>
 </div>
