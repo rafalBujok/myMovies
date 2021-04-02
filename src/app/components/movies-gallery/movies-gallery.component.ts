@@ -12,8 +12,8 @@ import { SubjectMessangerService } from 'src/app/services/subject-messanger.serv
 })
 export class MoviesGalleryComponent implements OnInit, OnDestroy {
 
-  listTrigger = true;
-  gridTrigger = false;
+  listTrigger = false;
+  gridTrigger = true;
   videoList: Video[] = [];
   paginatorList: Video[] = [];
   videoSub: Subscription | undefined;
