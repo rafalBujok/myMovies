@@ -21,6 +21,10 @@ import { ShortNumberPipe } from '../pipes/short-number.pipe';
 import { GridMovieComponent } from '../components/movies-gallery/grid-movie/grid-movie.component';
 import { ListMovieComponent } from '../components/movies-gallery/list-movie/list-movie.component';
 import { DisplayListMovieComponent } from '../components/movies-gallery/list-movie/display-list-movie/display-list-movie.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalMovieComponent } from '../components/modal-movie/modal-movie.component';
+import { YouTubePlayerModule } from "@angular/youtube-player";
+
 
 
 
@@ -37,19 +41,22 @@ import { DisplayListMovieComponent } from '../components/movies-gallery/list-mov
       ShortNumberPipe,
       GridMovieComponent,
       ListMovieComponent,
-      DisplayListMovieComponent
+      DisplayListMovieComponent,
+      ModalMovieComponent
     ],
   imports: [
     CommonModule,
     MatGridListModule,
-
+    MatDialogModule,
     HttpClientModule,
     MatInputModule,
     FormsModule,
     MatButtonModule,
     MatPaginatorModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    YouTubePlayerModule
+
 
   ],
   exports: [
@@ -68,7 +75,11 @@ import { DisplayListMovieComponent } from '../components/movies-gallery/list-mov
     ShortNumberPipe,
     GridMovieComponent,
     ListMovieComponent,
-    DisplayListMovieComponent
+    DisplayListMovieComponent,
+    MatDialogModule,
+    ModalMovieComponent,
+    YouTubePlayerModule
+
   ],
   providers: [MovieApiService, SubjectMessangerService],
 })

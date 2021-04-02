@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalMovieComponent } from 'src/app/components/modal-movie/modal-movie.component';
 import { Video } from 'src/app/models/video';
 import { SubjectMessangerService } from 'src/app/services/subject-messanger.service';
 
@@ -13,7 +15,7 @@ export class DisplayListMovieComponent {
 
   @Input() video: Video = { id: '', title: '', viewCount: '', likeCount: '', publishedAt: '', thumbnail: '' };
 
-  constructor(private messanger: SubjectMessangerService) { }
+  constructor(private messanger: SubjectMessangerService, public dialog: MatDialog) { }
 
 
 
