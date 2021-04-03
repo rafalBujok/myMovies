@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Video } from 'src/app/models/video';
+
+
 
 @Component({
   selector: 'app-modal-movie',
@@ -10,6 +11,6 @@ import { Video } from 'src/app/models/video';
 export class ModalMovieComponent {
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Video) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: string) { }
 
 }

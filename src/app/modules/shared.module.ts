@@ -24,6 +24,7 @@ import { DisplayListMovieComponent } from '../components/movies-gallery/list-mov
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalMovieComponent } from '../components/modal-movie/modal-movie.component';
 import { YouTubePlayerModule } from "@angular/youtube-player";
+import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
 
 
 
@@ -42,7 +43,8 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
       GridMovieComponent,
       ListMovieComponent,
       DisplayListMovieComponent,
-      ModalMovieComponent
+      ModalMovieComponent,
+      VimeoUrlPipe
     ],
   imports: [
     CommonModule,
@@ -78,7 +80,8 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
     DisplayListMovieComponent,
     MatDialogModule,
     ModalMovieComponent,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    VimeoUrlPipe
 
   ],
   providers: [MovieApiService, SubjectMessangerService],

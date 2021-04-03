@@ -9,15 +9,19 @@ import { SubjectMessangerService } from 'src/app/services/subject-messanger.serv
   templateUrl: './display-grid-movie.component.html',
   styleUrls: ['./display-grid-movie.component.scss']
 })
-export class DisplayGridMovieComponent implements OnInit {
+export class DisplayGridMovieComponent {
   @Input() video: Video = { id: '', title: '', viewCount: '', likeCount: '', publishedAt: '', thumbnail: '' };
 
   constructor(private messanger: SubjectMessangerService, public dialog: MatDialog) { }
 
-  ngOnInit(): void {
-  }
-  openDialog(videoId: string) {
-    this.dialog.open(ModalMovieComponent, { data: videoId })
+  openDialog(video: Video) {
+    if (video.youtubeVideo) {
+      this.dialog.open(ModalMovieComponent, { data: video.id })
+    }
+    if (video.vimeoVideo) {
+      this.dialog.open(ModalMovieComponent, { data: "http://vimeo.com/" + video.id })
+    }
+
   }
   removeVideo(id: string): void {
     this.messanger.removeVideo(id)
@@ -25,5 +29,6 @@ export class DisplayGridMovieComponent implements OnInit {
   favoriteVideo(id: string): void {
     this.messanger.favoriteVideo(id)
   }
+
 
 }

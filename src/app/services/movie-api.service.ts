@@ -9,14 +9,20 @@ import { Observable } from 'rxjs';
 })
 export class MovieApiService {
   private _youtubeKey: string = environment.youtubeKey;
+  private vimeoToken: string = environment.vimeoAccessToken;
   constructor(private http: HttpClient) { }
 
   getVideoFromYoutube(id: string): Observable<Object> {
-    let url: string = 'https://www.googleapis.com/youtube/v3/videos?id=' + id + '&key=' + this._youtubeKey + '&part=snippet,statistics'
+    const url: string = 'https://www.googleapis.com/youtube/v3/videos?id=' + id + '&key=' + this._youtubeKey + '&part=snippet,statistics'
     return this.http.get(url)
       .pipe(map((res) => {
         return res;
       }))
+  }
+  getMovieFromVimeo(id: string): Observable<Object> {
+    const headers = { 'Authorization': 'Bearer ' + this.vimeoToken }
+    const url: string = 'https://api.vimeo.com/videos/' + id
+    return this.http.get(url, { headers })
 
   }
 }
