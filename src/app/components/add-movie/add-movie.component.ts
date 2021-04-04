@@ -35,11 +35,12 @@ export class AddMovieComponent {
     this.api.getMovieFromVimeo(id).pipe(take(1)).subscribe((val: any) => {
       this.video.id = id;
       this.video.title = val.name;
-      this.video.likeCount = val.metadata.connections.likes.total;
+      this.video.likeCount = val.metadata.connections.likes.total.toString();
       //this.video.publishedAt = val.created_time;
       this.video.publishedAt = new Date().toString();
       this.video.thumbnail = val.pictures.sizes[2].link
       this.video.vimeoVideo = true;
+      console.log(this.video)
       this.subjectMessage.sendMessage(this.video)
     }
     )
@@ -81,5 +82,57 @@ export class AddMovieComponent {
       id: '', title: '', viewCount: '', likeCount: '', publishedAt: '', thumbnail: '', youtubeVideo: false, vimeoVideo: false
     }
     this.id = ''
+  }
+  getHardcodeMovies() {
+    this.subjectMessage.sendMessage({
+      "id": "eEO6v-YiS00",
+      "title": "Status Quo - Rockin' All Over The World (Live Aid 1985)",
+      "viewCount": "3054361",
+      "likeCount": "10642",
+      "publishedAt": "Sun Apr 04 2021 14:57:25 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.ytimg.com/vi/eEO6v-YiS00/mqdefault.jpg",
+      "youtubeVideo": true,
+      "vimeoVideo": false
+    })
+    this.subjectMessage.sendMessage({
+      "id": "8Pa9x9fZBtY",
+      "title": "Dire Straits - Sultans Of Swing (Alchemy Live)",
+      "viewCount": "173375976",
+      "likeCount": "781286",
+      "publishedAt": "Sun Apr 04 2021 15:02:16 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.ytimg.com/vi/8Pa9x9fZBtY/mqdefault.jpg",
+      "youtubeVideo": true,
+      "vimeoVideo": false
+    })
+    this.subjectMessage.sendMessage({
+      "id": "CqnU_sJ8V-E",
+      "title": "Free Bird",
+      "viewCount": "30750980",
+      "likeCount": "295352",
+      "publishedAt": "Sun Apr 04 2021 15:03:20 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.ytimg.com/vi/CqnU_sJ8V-E/mqdefault.jpg",
+      "youtubeVideo": true,
+      "vimeoVideo": false
+    })
+    this.subjectMessage.sendMessage({
+      "id": "109988488",
+      "title": "Jimi Hendrix ~ Are You Experienced",
+      "viewCount": "",
+      "likeCount": "198",
+      "publishedAt": "Sun Apr 04 2021 15:05:33 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.vimeocdn.com/video/494090497_295x166.jpg?r=pad",
+      "youtubeVideo": false,
+      "vimeoVideo": true
+    })
+    this.subjectMessage.sendMessage({
+      "id": "530298833",
+      "title": "The Revolt",
+      "viewCount": "",
+      "likeCount": "310",
+      "publishedAt": "Sun Apr 04 2021 15:07:00 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.vimeocdn.com/video/1097668351_295x166.jpg?r=pad",
+      "youtubeVideo": false,
+      "vimeoVideo": true
+    })
   }
 }
