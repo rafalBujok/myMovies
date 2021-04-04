@@ -11,7 +11,7 @@
     </p>
 
     <p class="text">&nbsp;{{ video.likeCount | shortNumber }}&nbsp;•</p>
-    <p class="text">
+    <p *ngIf="video.viewCount" class="text">
       &nbsp;{{ video.viewCount | shortNumber }}&nbsp;views&nbsp;•
     </p>
     <p class="text">&nbsp;{{ video.publishedAt | date }}&nbsp;</p>
