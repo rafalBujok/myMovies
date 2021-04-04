@@ -4,7 +4,6 @@ import { ModalMovieComponent } from 'src/app/components/modal-movie/modal-movie.
 import { Video } from 'src/app/models/video';
 import { SubjectMessangerService } from 'src/app/services/subject-messanger.service';
 
-
 @Component({
   selector: 'app-display-list-movie',
   templateUrl: './display-list-movie.component.html',
@@ -17,7 +16,15 @@ export class DisplayListMovieComponent {
 
   constructor(private messanger: SubjectMessangerService, public dialog: MatDialog) { }
 
+  openDialog(video: Video) {
+    if (video.youtubeVideo) {
+      this.dialog.open(ModalMovieComponent, { data: video })
+    }
+    if (video.vimeoVideo) {
+      this.dialog.open(ModalMovieComponent, { data: video })
+    }
 
+  }
 
   removeVideo(id: string): void {
     this.messanger.removeVideo(id)

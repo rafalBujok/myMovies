@@ -16,10 +16,10 @@ export class DisplayGridMovieComponent {
 
   openDialog(video: Video) {
     if (video.youtubeVideo) {
-      this.dialog.open(ModalMovieComponent, { data: video.id })
+      this.dialog.open(ModalMovieComponent, { data: video })
     }
     if (video.vimeoVideo) {
-      this.dialog.open(ModalMovieComponent, { data: "http://vimeo.com/" + video.id })
+      this.dialog.open(ModalMovieComponent, { data: video })
     }
 
   }
