@@ -1,4 +1,4 @@
-<div *ngFor="let video of videoList">
+<div *ngFor="let video of videoList | favoritePipe: isFavoriteFilterOn">
   <app-display-grid-movie
     class="videoItem"
     [video]="video"

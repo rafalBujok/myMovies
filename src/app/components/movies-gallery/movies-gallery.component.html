@@ -5,7 +5,7 @@
   <button mat-button (click)="showGrid()">Grid</button>
   <button mat-button (click)="sortByOldest()">Oldest</button>
   <button mat-button (click)="sortByLatest()">Latest</button>
-  <button mat-button (click)="filterFavorites()">Favorites</button>
+  <button mat-button (click)="favoriteFilter()">Favorites</button>
 
   <mat-paginator
     [length]="paginatorLength"
@@ -17,6 +17,7 @@
   <app-grid-movie
     *ngIf="gridTrigger"
     [videoList]="paginatorList"
+    [isFavoriteFilterOn]="isFavoriteFilterOn"
   ></app-grid-movie>
   <app-list-movie
     *ngIf="listTrigger"

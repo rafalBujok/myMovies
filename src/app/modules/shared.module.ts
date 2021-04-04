@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ModalMovieComponent } from '../components/modal-movie/modal-movie.component';
 import { YouTubePlayerModule } from "@angular/youtube-player";
 import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
+import { FavoritePipePipe } from '../pipes/favorite-pipe.pipe';
 
 
 
@@ -45,7 +46,8 @@ import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
       ListMovieComponent,
       DisplayListMovieComponent,
       ModalMovieComponent,
-      VimeoUrlPipe
+      VimeoUrlPipe,
+      FavoritePipePipe
     ],
   imports: [
     CommonModule,
@@ -82,7 +84,8 @@ import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
     MatDialogModule,
     ModalMovieComponent,
     YouTubePlayerModule,
-    VimeoUrlPipe
+    VimeoUrlPipe,
+    FavoritePipePipe
 
   ],
   providers: [MovieApiService, SubjectMessangerService],
