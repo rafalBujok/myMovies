@@ -80,7 +80,14 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
         break;
       }
     }
-    this.updateDisplay();
+    if (this.isFavoriteFilterOn) {
+      this.paginatorLength = this.countFavorites(this.videoList)
+      this.paginatorList = this.videoList.slice(this.pageIndex * this.pageSize, (this.pageIndex * this.pageSize) + this.pageSize)
+    }
+    if (!this.isFavoriteFilterOn) {
+      this.updateDisplay();
+    }
+
   }
   favoriteVideo(videoId: string): void {
 
@@ -117,24 +124,24 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     })
     this.updateDisplay();
   }
-  filterFavorites(): void {
+  favoriteFilter() {
+    this.isFavoriteFilterOn = !this.isFavoriteFilterOn;
+    // fix paginator for favorites only
     if (this.isFavoriteFilterOn) {
-      this.isFavoriteFilterOn = false;
-      this.getVideoFromLocalStorage();
-      this.updateDisplay();
-      return;
+      this.paginatorLength = this.countFavorites(this.videoList)
     }
     if (!this.isFavoriteFilterOn) {
-      let favoriteList: Video[] = [];
-      this.isFavoriteFilterOn = true;
-      this.videoList.filter(video => {
-        if (video.favorite) {
-          favoriteList.push(video);
-        }
-
-      })
-      return;
+      this.updateDisplay()
     }
+  }
+  countFavorites(videoList: Video[]): number {
+    let counter = 0;
+    videoList.forEach(video => {
+      if (video.favorite) {
+        counter++;
+      }
+    })
+    return counter
   }
   ngOnDestroy(): void {
     if (this.videoSub) {

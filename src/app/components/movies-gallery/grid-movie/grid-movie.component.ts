@@ -9,6 +9,7 @@ import { Video } from 'src/app/models/video';
 export class GridMovieComponent {
 
   @Input() videoList: Video[] = [];
+  @Input() isFavoriteFilterOn: boolean = false;
 
 
 }
