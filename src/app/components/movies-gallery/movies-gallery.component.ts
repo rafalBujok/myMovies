@@ -14,6 +14,7 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
 
   listTrigger = false;
   gridTrigger = true;
+  isFavoriteFilterOn: boolean = false;
   videoList: Video[] = [];
   paginatorList: Video[] = [];
   videoSub: Subscription | undefined;
@@ -108,15 +109,33 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     this.videoList.sort(function (a: any, b: any) {
       return new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
     })
-    console.log(this.videoList)
     this.updateDisplay();
   }
   sortByLatest() {
     this.videoList.sort(function (a, b) {
       return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
     })
-    console.log(this.videoList)
     this.updateDisplay();
+  }
+  filterFavorites(): void {
+    if (this.isFavoriteFilterOn) {
+      this.isFavoriteFilterOn = false;
+      this.getVideoFromLocalStorage();
+      this.updateDisplay();
+      return;
+    }
+    if (!this.isFavoriteFilterOn) {
+      let favoriteList: Video[] = [];
+      this.isFavoriteFilterOn = true;
+      this.videoList.forEach(video => {
+        if (video.favorite) {
+          favoriteList.push(video);
+          this.videoList = favoriteList
+        }
+      })
+      this.updateDisplay();
+      return;
+    }
   }
   ngOnDestroy(): void {
     if (this.videoSub) {
