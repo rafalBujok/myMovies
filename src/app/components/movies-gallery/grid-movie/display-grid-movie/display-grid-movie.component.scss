@@ -6,11 +6,13 @@
 .mat-card-actions,
 .mat-card-content {
   margin-bottom: 0px;
+  height: 25px;
 }
 .mat-card-actions {
   margin-left: 0px;
   margin-right: 0px;
   padding: 0px;
+  height: fit-content;
 }
 .icon {
   margin-top: 5px;
@@ -22,4 +24,7 @@ p {
 .mat-card-header .mat-card-title {
   height: 60px;
   font-size: 14px;
+}
+.card {
+  margin: 5px;
 }
