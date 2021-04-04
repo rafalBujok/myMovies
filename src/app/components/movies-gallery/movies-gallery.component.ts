@@ -127,13 +127,12 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     if (!this.isFavoriteFilterOn) {
       let favoriteList: Video[] = [];
       this.isFavoriteFilterOn = true;
-      this.videoList.forEach(video => {
+      this.videoList.filter(video => {
         if (video.favorite) {
           favoriteList.push(video);
-          this.videoList = favoriteList
         }
+
       })
-      this.updateDisplay();
       return;
     }
   }
