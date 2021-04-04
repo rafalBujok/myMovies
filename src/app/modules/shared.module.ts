@@ -30,6 +30,7 @@ import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
 
 
 
+
 @NgModule({
   declarations:
     [
