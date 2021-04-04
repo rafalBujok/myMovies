@@ -14,7 +14,7 @@
     <mat-grid-tile colspan="3" rowspan="1">
       <button mat-button (click)="favoriteVideo(video.id)">Favorite</button>
       <button mat-button (click)="removeVideo(video.id)">Delete</button>
-      <button mat-button>Play</button></mat-grid-tile
-    >
+      <button mat-button (click)="openDialog(video)">Play</button>
+    </mat-grid-tile>
   </mat-grid-list>
 </mat-card>
