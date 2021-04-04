@@ -104,7 +104,20 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     this.gridTrigger = false;
     this.listTrigger = true;
   }
-
+  sortByOldest() {
+    this.videoList.sort(function (a: any, b: any) {
+      return new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
+    })
+    console.log(this.videoList)
+    this.updateDisplay();
+  }
+  sortByLatest() {
+    this.videoList.sort(function (a, b) {
+      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    })
+    console.log(this.videoList)
+    this.updateDisplay();
+  }
   ngOnDestroy(): void {
     if (this.videoSub) {
       this.videoSub.unsubscribe()

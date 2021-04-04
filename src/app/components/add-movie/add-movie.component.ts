@@ -14,6 +14,7 @@ export class AddMovieComponent {
     id: '', title: '', viewCount: '', likeCount: '', publishedAt: '', thumbnail: '', youtubeVideo: false, vimeoVideo: false
   }
   id: string = ''
+
   constructor(private api: MovieApiService, private subjectMessage: SubjectMessangerService) { }
   getYoutubeMovie(id: string): void {
     this.api.getVideoFromYoutube(id).pipe(take(1)).subscribe((val: any) => {
@@ -21,7 +22,8 @@ export class AddMovieComponent {
       this.video.title = val.items[0].snippet.title;
       this.video.viewCount = val.items[0].statistics.viewCount;
       this.video.likeCount = val.items[0].statistics.likeCount;
-      this.video.publishedAt = val.items[0].snippet.publishedAt;
+      //this.video.publishedAt = val.items[0].snippet.publishedAt;
+      this.video.publishedAt = new Date().toString();
       this.video.thumbnail = val.items[0].snippet.thumbnails.medium.url;
       this.video.youtubeVideo = true;
       this.subjectMessage.sendMessage(this.video)
@@ -34,7 +36,8 @@ export class AddMovieComponent {
       this.video.id = id;
       this.video.title = val.name;
       this.video.likeCount = val.metadata.connections.likes.total;
-      this.video.publishedAt = val.created_time;
+      //this.video.publishedAt = val.created_time;
+      this.video.publishedAt = new Date().toString();
       this.video.thumbnail = val.pictures.sizes[2].link
       this.video.vimeoVideo = true;
       this.subjectMessage.sendMessage(this.video)
