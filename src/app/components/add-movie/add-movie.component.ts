@@ -17,25 +17,24 @@ import {
 export class AddMovieComponent {
   video: Video = {
     id: '', title: '', viewCount: '', likeCount: '', publishedAt: '', thumbnail: '', youtubeVideo: false, vimeoVideo: false
-  }
-  id: string = ''
+  };
+  id = '';
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  constructor(private api: MovieApiService, private subjectMessage: SubjectMessangerService, private _snackBar: MatSnackBar) { }
+  constructor(private api: MovieApiService, private subjectMessage: SubjectMessangerService, private snackBar: MatSnackBar) { }
   getYoutubeMovie(id: string): void {
     this.api.getVideoFromYoutube(id).pipe(take(1)).subscribe((val: any) => {
       this.video.id = id;
       this.video.title = val.items[0].snippet.title;
       this.video.viewCount = val.items[0].statistics.viewCount;
       this.video.likeCount = val.items[0].statistics.likeCount;
-      //this.video.publishedAt = val.items[0].snippet.publishedAt;
+      // this.video.publishedAt = val.items[0].snippet.publishedAt;
       this.video.publishedAt = new Date().toString();
       this.video.thumbnail = val.items[0].snippet.thumbnails.medium.url;
       this.video.youtubeVideo = true;
-      console.log(this.video)
-      this.subjectMessage.sendMessage(this.video)
+      this.subjectMessage.sendMessage(this.video);
     }
-    )
+    );
     this.resetInput();
   }
   getVimeoMovie(id: string): void {
@@ -43,49 +42,48 @@ export class AddMovieComponent {
       this.video.id = id;
       this.video.title = val.name;
       this.video.likeCount = val.metadata.connections.likes.total.toString();
-      //this.video.publishedAt = val.created_time;
+      // this.video.publishedAt = val.created_time;
       this.video.publishedAt = new Date().toString();
-      this.video.thumbnail = val.pictures.sizes[2].link
+      this.video.thumbnail = val.pictures.sizes[2].link;
       this.video.vimeoVideo = true;
-      console.log(this.video)
-      this.subjectMessage.sendMessage(this.video)
+      this.subjectMessage.sendMessage(this.video);
     }
-    )
+    );
     this.resetInput();
   }
   checkInput(id: string): void {
     // https://www.youtube.com/watch?v=4JOAqRS_lms => 4JOAqRS_lms
     if (id.length === 43) {
-      id = id.slice(32, 43)
+      id = id.slice(32, 43);
       this.video.youtubeVideo = true;
-      return this.getYoutubeMovie(id)
+      return this.getYoutubeMovie(id);
     }
     // https://youtu.be/vJ3a_AuEW18 => vJ3a_AuEW18
     if (id.length === 28) {
-      id = id.slice(17, 28)
+      id = id.slice(17, 28);
       this.video.youtubeVideo = true;
-      return this.getYoutubeMovie(id)
+      return this.getYoutubeMovie(id);
     }
     // vJ3a_AuEW18 => vJ3a_AuEW18
     if (id.length === 11) {
       this.video.youtubeVideo = true;
-      return this.getYoutubeMovie(id)
+      return this.getYoutubeMovie(id);
     }
     // https://vimeo.com/138882294 => 138882294
     if (id.length === 27) {
-      id = id.slice(18, 27)
+      id = id.slice(18, 27);
       this.video.vimeoVideo = true;
-      return this.getVimeoMovie(id)
+      return this.getVimeoMovie(id);
     }
     // 138882294 => 138882294
     if (id.length === 9) {
       this.video.vimeoVideo = true;
-      return this.getVimeoMovie(id)
+      return this.getVimeoMovie(id);
     }
     this.openSnackBar();
   }
-  openSnackBar() {
-    this._snackBar.open('Wrong format', 'Ok', {
+  openSnackBar(): void {
+    this.snackBar.open('Wrong format', 'Ok', {
       duration: 3000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
@@ -94,101 +92,111 @@ export class AddMovieComponent {
   resetInput(): void {
     this.video = {
       id: '', title: '', viewCount: '', likeCount: '', publishedAt: '', thumbnail: '', youtubeVideo: false, vimeoVideo: false
-    }
-    this.id = ''
+    };
+    this.id = '';
   }
-  getHardcodeMovies() {
+  getHardcodeMovies(): void {
     this.subjectMessage.sendMessage({
-      "id": "eEO6v-YiS00",
-      "title": "Status Quo - Rockin' All Over The World (Live Aid 1985)",
-      "viewCount": "3054361",
-      "likeCount": "10642",
-      "publishedAt": "Sun Apr 04 2021 14:57:25 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.ytimg.com/vi/eEO6v-YiS00/mqdefault.jpg",
-      "youtubeVideo": true,
-      "vimeoVideo": false
-    })
+      id: 'eEO6v-YiS00',
+      title: `Status Quo - Rockin' All Over The World(Live Aid 1985)`,
+      viewCount: '3054361',
+      likeCount: '10642',
+      publishedAt: 'Sun Apr 04 2021 14:57:25 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.ytimg.com/vi/eEO6v-YiS00/mqdefault.jpg',
+      youtubeVideo: true,
+      vimeoVideo: false
+    });
     this.subjectMessage.sendMessage({
-      "id": "8Pa9x9fZBtY",
-      "title": "Dire Straits - Sultans Of Swing (Alchemy Live)",
-      "viewCount": "173375976",
-      "likeCount": "781286",
-      "publishedAt": "Sun Apr 04 2021 15:02:16 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.ytimg.com/vi/8Pa9x9fZBtY/mqdefault.jpg",
-      "youtubeVideo": true,
-      "vimeoVideo": false
-    })
+      id: '8Pa9x9fZBtY',
+      title: 'Dire Straits - Sultans Of Swing (Alchemy Live)',
+      viewCount: '173375976',
+      likeCount: '781286',
+      publishedAt: 'Sun Apr 04 2021 15:02:16 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.ytimg.com/vi/8Pa9x9fZBtY/mqdefault.jpg',
+      youtubeVideo: true,
+      vimeoVideo: false
+    });
     this.subjectMessage.sendMessage({
-      "id": "CqnU_sJ8V-E",
-      "title": "Free Bird",
-      "viewCount": "30750980",
-      "likeCount": "295352",
-      "publishedAt": "Sun Apr 04 2021 15:03:20 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.ytimg.com/vi/CqnU_sJ8V-E/mqdefault.jpg",
-      "youtubeVideo": true,
-      "vimeoVideo": false
-    })
+      id: 'CqnU_sJ8V-E',
+      title: 'Free Bird',
+      viewCount: '30750980',
+      likeCount: '295352',
+      publishedAt: 'Sun Apr 04 2021 15:03:20 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.ytimg.com/vi/CqnU_sJ8V-E/mqdefault.jpg',
+      youtubeVideo: true,
+      vimeoVideo: false
+    });
     this.subjectMessage.sendMessage({
 
-      "id": "WaEKXGlfYj8",
-      "title": "David Gilmour - Wish You Were Here (Live At Pompeii)",
-      "viewCount": "3032063",
-      "likeCount": "24013",
-      "publishedAt": "Mon Apr 05 2021 20:16:04 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.ytimg.com/vi/WaEKXGlfYj8/mqdefault.jpg",
-      "youtubeVideo": true,
-      "vimeoVideo": false
+      id: 'WaEKXGlfYj8',
+      title: 'David Gilmour - Wish You Were Here (Live At Pompeii)',
+      viewCount: '3032063',
+      likeCount: '24013',
+      publishedAt: 'Mon Apr 05 2021 20:16:04 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.ytimg.com/vi/WaEKXGlfYj8/mqdefault.jpg',
+      youtubeVideo: true,
+      vimeoVideo: false
 
-    })
+    });
     this.subjectMessage.sendMessage({
-      "id": "Kman7MzhC0g",
-      "title": "Sting - Roxanne (Live Aid 1985)",
-      "viewCount": "1121763",
-      "likeCount": "10043",
-      "publishedAt": "Mon Apr 05 2021 20:16:58 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.ytimg.com/vi/Kman7MzhC0g/mqdefault.jpg",
-      "youtubeVideo": true,
-      "vimeoVideo": false
-    })
+      id: 'Kman7MzhC0g',
+      title: 'Sting - Roxanne (Live Aid 1985)',
+      viewCount: '1121763',
+      likeCount: '10043',
+      publishedAt: 'Mon Apr 05 2021 20:16:58 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.ytimg.com/vi/Kman7MzhC0g/mqdefault.jpg',
+      youtubeVideo: true,
+      vimeoVideo: false
+    });
     this.subjectMessage.sendMessage({
-      "id": "527079690",
-      "title": "SEAWOLF",
-      "viewCount": "",
-      "likeCount": "394",
-      "publishedAt": "Mon Apr 05 2021 20:17:38 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.vimeocdn.com/video/1091141651_295x166.jpg?r=pad",
-      "youtubeVideo": false,
-      "vimeoVideo": true
-    })
+      id: '527079690',
+      title: 'SEAWOLF',
+      viewCount: '',
+      likeCount: '394',
+      publishedAt: 'Mon Apr 05 2021 20:17:38 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.vimeocdn.com/video/1091141651_295x166.jpg?r=pad',
+      youtubeVideo: false,
+      vimeoVideo: true
+    });
     this.subjectMessage.sendMessage({
-      "id": "485625376",
-      "title": "Hou'ley",
-      "viewCount": "",
-      "likeCount": "26",
-      "publishedAt": "Mon Apr 05 2021 20:18:11 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.vimeocdn.com/video/1098676830_295x166.jpg?r=pad",
-      "youtubeVideo": false,
-      "vimeoVideo": true
-    })
+      id: '485625376',
+      title: `Hou'ley`,
+      viewCount: '',
+      likeCount: '26',
+      publishedAt: 'Mon Apr 05 2021 20:18:11 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.vimeocdn.com/video/1098676830_295x166.jpg?r=pad',
+      youtubeVideo: false,
+      vimeoVideo: true
+    });
     this.subjectMessage.sendMessage({
-      "id": "529254176",
-      "title": "Lil Nas X - MONTERO (Call Me By Your Name)",
-      "viewCount": "",
-      "likeCount": "225",
-      "publishedAt": "Mon Apr 05 2021 20:19:19 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.vimeocdn.com/video/1095287599_295x166.jpg?r=pad",
-      "youtubeVideo": false,
-      "vimeoVideo": true
-    })
+      id: '529254176',
+      title: 'Lil Nas X - MONTERO (Call Me By Your Name)',
+      viewCount: '',
+      likeCount: '225',
+      publishedAt: 'Mon Apr 05 2021 20:19:19 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.vimeocdn.com/video/1095287599_295x166.jpg?r=pad',
+      youtubeVideo: false,
+      vimeoVideo: true
+    });
     this.subjectMessage.sendMessage({
-      "id": "475800442",
-      "title": "MONATIK & LIDA LEE & NINO - РИТМОLOVE",
-      "viewCount": "",
-      "likeCount": "39",
-      "publishedAt": "Mon Apr 05 2021 20:19:41 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.vimeocdn.com/video/988849133_295x166.jpg?r=pad",
-      "youtubeVideo": false,
-      "vimeoVideo": true
-    })
+      id: '475800442',
+      title: 'MONATIK & LIDA LEE & NINO - РИТМОLOVE',
+      viewCount: '',
+      likeCount: '39',
+      publishedAt: 'Mon Apr 05 2021 20:19:41 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.vimeocdn.com/video/988849133_295x166.jpg?r=pad',
+      youtubeVideo: false,
+      vimeoVideo: true
+    });
+    this.subjectMessage.sendMessage({
+      id: '5vUDmFjWgVo',
+      title: 'Dire Straits - Brothers in Arms Mandela Live 1988',
+      viewCount: '7693687',
+      likeCount: '22641',
+      publishedAt: 'Mon Apr 05 2021 23:09:00 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.ytimg.com/vi/5vUDmFjWgVo/mqdefault.jpg',
+      youtubeVideo: true,
+      vimeoVideo: false
+    });
   }
 }

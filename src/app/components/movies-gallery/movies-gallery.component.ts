@@ -15,33 +15,33 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   listToggle = false;
   gridToggle = true;
   displayMode = 'grid';
-  favoriteToggle: boolean = false;
+  favoriteToggle = false;
   videoList: Video[] = [];
   paginatorList: Video[] = [];
   videoSub: Subscription | undefined;
   removeSub: Subscription | undefined;
   favoriteSub: Subscription | undefined;
 
-  paginatorLength: number = 0;
-  pageIndex: number = 0;
-  pageSize: number = 10;
+  paginatorLength = 0;
+  pageIndex = 0;
+  pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   pageEvent: PageEvent | undefined;
 
   constructor(private subjectMessage: SubjectMessangerService) { }
 
   ngOnInit(): void {
-    this.getVideoFromLocalStorage()
+    this.getVideoFromLocalStorage();
     this.videoSub = this.subjectMessage.getMessage().subscribe((video: Video | any) => {
       this.pushVideoToList(video);
-    })
+    });
     this.removeSub = this.subjectMessage.removeSubject.subscribe((id: string | any) => {
-      this.removeVideo(id)
-    })
+      this.removeVideo(id);
+    });
     this.favoriteSub = this.subjectMessage.favoriteSubject.subscribe((id: string | any) => {
       this.favoriteVideo(id);
-    })
-    this.updateDisplay()
+    });
+    this.updateDisplay();
   }
   getPaginatorLength(): void {
     this.paginatorLength = this.videoList.length;
@@ -53,28 +53,28 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     this.getPaginatorList();
   }
   getPaginatorList(): void {
-    this.paginatorList = this.videoList.slice(this.pageIndex * this.pageSize, (this.pageIndex * this.pageSize) + this.pageSize)
+    this.paginatorList = this.videoList.slice(this.pageIndex * this.pageSize, (this.pageIndex * this.pageSize) + this.pageSize);
   }
   pushVideoToList(video: Video): void {
-    this.videoList.push(video)
+    this.videoList.push(video);
     this.pushVideoToLocalStorage();
     this.updateDisplay();
   }
   updateDisplay(): void {
-    this.getPaginatorList()
-    this.getPaginatorLength()
+    this.getPaginatorList();
+    this.getPaginatorLength();
   }
   pushVideoToLocalStorage(): void {
-    localStorage.setItem('videoList', JSON.stringify(this.videoList))
+    localStorage.setItem('videoList', JSON.stringify(this.videoList));
   }
   getVideoFromLocalStorage(): void {
     if (localStorage.getItem('videoList')) {
-      this.videoList = JSON.parse(localStorage.getItem('videoList')!)
+      this.videoList = JSON.parse(localStorage.getItem('videoList') || '{}');
     }
   }
   removeVideo(videoId: string): void {
 
-    for (let i in this.videoList) {
+    for (const i in this.videoList) {
       if (this.videoList[i].id === videoId) {
         this.videoList.splice(Number(i), 1);
         this.pushVideoToLocalStorage();
@@ -82,8 +82,8 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
       }
     }
     if (this.favoriteToggle) {
-      this.paginatorLength = this.countFavorites(this.videoList)
-      this.paginatorList = this.videoList.slice(this.pageIndex * this.pageSize, (this.pageIndex * this.pageSize) + this.pageSize)
+      this.paginatorLength = this.countFavorites(this.videoList);
+      this.paginatorList = this.videoList.slice(this.pageIndex * this.pageSize, (this.pageIndex * this.pageSize) + this.pageSize);
     }
     if (!this.favoriteToggle) {
       this.updateDisplay();
@@ -92,7 +92,7 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   }
   favoriteVideo(videoId: string): void {
 
-    for (let i in this.videoList) {
+    for (const i in this.videoList) {
       if (this.videoList[i].id === videoId) {
         this.videoList[i].favorite = true;
         this.pushVideoToLocalStorage();
@@ -103,7 +103,7 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   clearList(): void {
     this.videoList = [];
     localStorage.clear();
-    this.updateDisplay()
+    this.updateDisplay();
   }
   showGrid(): void {
     this.gridToggle = true;
@@ -115,26 +115,28 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     this.listToggle = true;
     this.displayMode = 'list';
   }
-  sortByOldest() {
-    this.videoList.sort(function (a: any, b: any) {
-      return new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
-    })
+  sortByOldest(): void {
+    const sortFunction = (a: any, b: any) => {
+      return new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime();
+    };
+    this.videoList.sort(sortFunction);
     this.updateDisplay();
   }
-  sortByLatest() {
-    this.videoList.sort(function (a, b) {
-      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    })
+  sortByLatest(): void {
+    const sortFunction = (a: any, b: any) => {
+      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+    };
+    this.videoList.sort(sortFunction);
     this.updateDisplay();
   }
-  favoriteFilter() {
+  favoriteFilter(): void {
     this.favoriteToggle = !this.favoriteToggle;
     // fix paginator for favorites only
     if (this.favoriteToggle) {
-      this.paginatorLength = this.countFavorites(this.videoList)
+      this.paginatorLength = this.countFavorites(this.videoList);
     }
     if (!this.favoriteToggle) {
-      this.updateDisplay()
+      this.updateDisplay();
     }
   }
   countFavorites(videoList: Video[]): number {
@@ -143,18 +145,18 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
       if (video.favorite) {
         counter++;
       }
-    })
-    return counter
+    });
+    return counter;
   }
   ngOnDestroy(): void {
     if (this.videoSub) {
-      this.videoSub.unsubscribe()
+      this.videoSub.unsubscribe();
     }
     if (this.removeSub) {
-      this.removeSub.unsubscribe()
+      this.removeSub.unsubscribe();
     }
     if (this.favoriteSub) {
-      this.favoriteSub.unsubscribe()
+      this.favoriteSub.unsubscribe();
     }
   }
 

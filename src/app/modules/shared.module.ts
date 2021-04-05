@@ -21,7 +21,7 @@ import { ShortNumberPipe } from '../pipes/short-number.pipe';
 import { GridMovieComponent } from '../components/movies-gallery/grid-movie/grid-movie.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalMovieComponent } from '../components/modal-movie/modal-movie.component';
-import { YouTubePlayerModule } from "@angular/youtube-player";
+import { YouTubePlayerModule } from '@angular/youtube-player';
 import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
 import { FavoritePipePipe } from '../pipes/favorite-pipe.pipe';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';

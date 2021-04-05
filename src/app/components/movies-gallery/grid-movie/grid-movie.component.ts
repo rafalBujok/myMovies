@@ -9,8 +9,8 @@ import { Video } from 'src/app/models/video';
 export class GridMovieComponent {
 
   @Input() videoList: Video[] = [];
-  @Input() favoriteToggle: boolean = false;
-  @Input() displayMode: string = 'grid';
+  @Input() favoriteToggle = false;
+  @Input() displayMode = 'grid';
 
 
 }
