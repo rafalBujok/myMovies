@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ShortNumberPipe implements PipeTransform {
 
-  transform(num: number): string | null {
-    num = Number(num);
+  transform(displayNum: string): string | null {
+    const num = Number(displayNum);
     if (isNaN(num)) { return null; }
     if (num === null) { return null; }
     if (num === 0) { return null; }
