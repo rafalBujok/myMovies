@@ -11,24 +11,24 @@ import { SubjectMessangerService } from 'src/app/services/subject-messanger.serv
 })
 export class DisplayGridMovieComponent {
   @Input() video: Video = { id: '', title: '', viewCount: '', likeCount: '', publishedAt: '', thumbnail: '' };
-  @Input() displayMode: string = 'grid';
+  @Input() displayMode = 'grid';
 
   constructor(private messanger: SubjectMessangerService, public dialog: MatDialog) { }
 
-  openDialog(video: Video) {
+  openDialog(video: Video): void {
     if (video.youtubeVideo) {
-      this.dialog.open(ModalMovieComponent, { data: video })
+      this.dialog.open(ModalMovieComponent, { data: video });
     }
     if (video.vimeoVideo) {
-      this.dialog.open(ModalMovieComponent, { data: video })
+      this.dialog.open(ModalMovieComponent, { data: video });
     }
 
   }
   removeVideo(id: string): void {
-    this.messanger.removeVideo(id)
+    this.messanger.removeVideo(id);
   }
   favoriteVideo(id: string): void {
-    this.messanger.favoriteVideo(id)
+    this.messanger.favoriteVideo(id);
   }
 
 

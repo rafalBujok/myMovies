@@ -1,9 +1,10 @@
 .grid-display {
+  display: block;
   float: left;
-  margin-bottom: 40px;
-  margin-left: 10px;
   height: 360px;
   width: 330px;
+  margin: 10px;
+  margin-bottom: 40px;
 }
 .list-display {
   margin: 3px;

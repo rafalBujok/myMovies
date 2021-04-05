@@ -6,12 +6,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class VimeoUrlPipe implements PipeTransform {
 
-  constructor(protected _sanitizer: DomSanitizer) { }
+  constructor(protected sanitizer: DomSanitizer) { }
 
   transform(value: string): any {
-    let url = value.replace("vimeo.com/", "player.vimeo.com/video/");
+    const url = value.replace('vimeo.com/', 'player.vimeo.com/video/');
 
-    return this._sanitizer.bypassSecurityTrustResourceUrl(url);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
 
   }
 

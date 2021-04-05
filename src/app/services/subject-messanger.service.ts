@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Video } from '../models/video';
 
 @Injectable({
@@ -10,16 +10,16 @@ export class SubjectMessangerService {
   videoSubject = new Subject();
   removeSubject = new Subject();
   favoriteSubject = new Subject();
-  sendMessage(video: Video) {
+  sendMessage(video: Video): void {
     this.videoSubject.next(video);
   }
-  getMessage() {
+  getMessage(): Observable<unknown> {
     return this.videoSubject.asObservable();
   }
-  removeVideo(id: string) {
+  removeVideo(id: string): void {
     this.removeSubject.next(id);
   }
-  favoriteVideo(id: string) {
+  favoriteVideo(id: string): void {
     this.favoriteSubject.next(id);
   }
 
