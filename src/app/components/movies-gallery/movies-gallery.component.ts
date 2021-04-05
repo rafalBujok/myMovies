@@ -14,6 +14,7 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
 
   listToggle = false;
   gridToggle = true;
+  displayMode = 'grid';
   favoriteToggle: boolean = false;
   videoList: Video[] = [];
   paginatorList: Video[] = [];
@@ -107,10 +108,12 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   showGrid(): void {
     this.gridToggle = true;
     this.listToggle = false;
+    this.displayMode = 'grid';
   }
   showList(): void {
     this.gridToggle = false;
     this.listToggle = true;
+    this.displayMode = 'list';
   }
   sortByOldest() {
     this.videoList.sort(function (a: any, b: any) {

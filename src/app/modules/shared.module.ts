@@ -19,14 +19,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ShortNumberPipe } from '../pipes/short-number.pipe';
 import { GridMovieComponent } from '../components/movies-gallery/grid-movie/grid-movie.component';
-import { ListMovieComponent } from '../components/movies-gallery/list-movie/list-movie.component';
-import { DisplayListMovieComponent } from '../components/movies-gallery/list-movie/display-list-movie/display-list-movie.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalMovieComponent } from '../components/modal-movie/modal-movie.component';
 import { YouTubePlayerModule } from "@angular/youtube-player";
 import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
 import { FavoritePipePipe } from '../pipes/favorite-pipe.pipe';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -45,8 +44,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
       DisplayGridMovieComponent,
       ShortNumberPipe,
       GridMovieComponent,
-      ListMovieComponent,
-      DisplayListMovieComponent,
       ModalMovieComponent,
       VimeoUrlPipe,
       FavoritePipePipe
@@ -63,7 +60,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatCardModule,
     MatIconModule,
     YouTubePlayerModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSnackBarModule
 
 
   ],
@@ -82,14 +80,13 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatIconModule,
     ShortNumberPipe,
     GridMovieComponent,
-    ListMovieComponent,
-    DisplayListMovieComponent,
     MatDialogModule,
     ModalMovieComponent,
     YouTubePlayerModule,
     VimeoUrlPipe,
     FavoritePipePipe,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSnackBarModule
 
   ],
   providers: [MovieApiService, SubjectMessangerService],

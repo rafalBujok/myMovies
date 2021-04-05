@@ -1,6 +1,13 @@
-<div *ngFor="let video of videoList | favoritePipe: favoriteToggle">
+<div
+  *ngFor="let video of videoList | favoritePipe: favoriteToggle"
+  [ngClass]="{
+    'grid-display': displayMode === 'grid',
+    'list-display': displayMode === 'list'
+  }"
+>
   <app-display-grid-movie
     class="videoItem"
+    [displayMode]="displayMode"
     [video]="video"
   ></app-display-grid-movie>
 </div>
