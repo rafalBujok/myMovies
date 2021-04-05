@@ -1,12 +1,20 @@
 <div class="container">
   <app-add-movie></app-add-movie>
   <button mat-button (click)="clearList()">Clear all</button>
-  <button mat-button (click)="showList()">List</button>
-  <button mat-button (click)="showGrid()">Grid</button>
+  <mat-button-toggle-group>
+    <mat-button-toggle [value]="listToggle" (click)="showList()"
+      >List</mat-button-toggle
+    >
+    <mat-button-toggle [value]="gridToggle" (click)="showGrid()"
+      >Grid</mat-button-toggle
+    >
+  </mat-button-toggle-group>
+
   <button mat-button (click)="sortByOldest()">Oldest</button>
   <button mat-button (click)="sortByLatest()">Latest</button>
-  <button mat-button (click)="favoriteFilter()">Favorites</button>
-
+  <mat-button-toggle [value]="favoriteToggle" (click)="favoriteFilter()"
+    >Favorites</mat-button-toggle
+  >
   <mat-paginator
     [length]="paginatorLength"
     [pageSize]="pageSize"
@@ -15,12 +23,13 @@
   >
   </mat-paginator>
   <app-grid-movie
-    *ngIf="gridTrigger"
+    *ngIf="gridToggle"
     [videoList]="paginatorList"
-    [isFavoriteFilterOn]="isFavoriteFilterOn"
+    [favoriteToggle]="favoriteToggle"
   ></app-grid-movie>
   <app-list-movie
-    *ngIf="listTrigger"
+    *ngIf="listToggle"
     [videoList]="paginatorList"
+    [favoriteToggle]="favoriteToggle"
   ></app-list-movie>
 </div>

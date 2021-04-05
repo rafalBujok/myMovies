@@ -26,6 +26,8 @@ import { ModalMovieComponent } from '../components/modal-movie/modal-movie.compo
 import { YouTubePlayerModule } from "@angular/youtube-player";
 import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
 import { FavoritePipePipe } from '../pipes/favorite-pipe.pipe';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
 
 
 
@@ -60,7 +62,8 @@ import { FavoritePipePipe } from '../pipes/favorite-pipe.pipe';
     MatPaginatorModule,
     MatCardModule,
     MatIconModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    MatButtonToggleModule
 
 
   ],
@@ -85,7 +88,8 @@ import { FavoritePipePipe } from '../pipes/favorite-pipe.pipe';
     ModalMovieComponent,
     YouTubePlayerModule,
     VimeoUrlPipe,
-    FavoritePipePipe
+    FavoritePipePipe,
+    MatButtonToggleModule
 
   ],
   providers: [MovieApiService, SubjectMessangerService],
