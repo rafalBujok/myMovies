@@ -9,6 +9,7 @@ import { Video } from 'src/app/models/video';
 export class ListMovieComponent implements OnInit {
 
   @Input() videoList: Video[] = [];
+  @Input() favoriteToggle: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

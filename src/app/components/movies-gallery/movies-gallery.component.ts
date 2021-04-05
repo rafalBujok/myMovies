@@ -12,9 +12,9 @@ import { SubjectMessangerService } from 'src/app/services/subject-messanger.serv
 })
 export class MoviesGalleryComponent implements OnInit, OnDestroy {
 
-  listTrigger = false;
-  gridTrigger = true;
-  isFavoriteFilterOn: boolean = false;
+  listToggle = false;
+  gridToggle = true;
+  favoriteToggle: boolean = false;
   videoList: Video[] = [];
   paginatorList: Video[] = [];
   videoSub: Subscription | undefined;
@@ -80,11 +80,11 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
         break;
       }
     }
-    if (this.isFavoriteFilterOn) {
+    if (this.favoriteToggle) {
       this.paginatorLength = this.countFavorites(this.videoList)
       this.paginatorList = this.videoList.slice(this.pageIndex * this.pageSize, (this.pageIndex * this.pageSize) + this.pageSize)
     }
-    if (!this.isFavoriteFilterOn) {
+    if (!this.favoriteToggle) {
       this.updateDisplay();
     }
 
@@ -105,12 +105,12 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     this.updateDisplay()
   }
   showGrid(): void {
-    this.gridTrigger = true;
-    this.listTrigger = false;
+    this.gridToggle = true;
+    this.listToggle = false;
   }
   showList(): void {
-    this.gridTrigger = false;
-    this.listTrigger = true;
+    this.gridToggle = false;
+    this.listToggle = true;
   }
   sortByOldest() {
     this.videoList.sort(function (a: any, b: any) {
@@ -125,12 +125,12 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     this.updateDisplay();
   }
   favoriteFilter() {
-    this.isFavoriteFilterOn = !this.isFavoriteFilterOn;
+    this.favoriteToggle = !this.favoriteToggle;
     // fix paginator for favorites only
-    if (this.isFavoriteFilterOn) {
+    if (this.favoriteToggle) {
       this.paginatorLength = this.countFavorites(this.videoList)
     }
-    if (!this.isFavoriteFilterOn) {
+    if (!this.favoriteToggle) {
       this.updateDisplay()
     }
   }
