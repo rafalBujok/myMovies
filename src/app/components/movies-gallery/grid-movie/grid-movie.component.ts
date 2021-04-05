@@ -10,6 +10,7 @@ export class GridMovieComponent {
 
   @Input() videoList: Video[] = [];
   @Input() favoriteToggle: boolean = false;
+  @Input() displayMode: string = 'grid';
 
 
 }

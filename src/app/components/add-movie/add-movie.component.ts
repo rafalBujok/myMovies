@@ -3,6 +3,11 @@ import { take } from 'rxjs/operators';
 import { Video } from 'src/app/models/video';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 import { SubjectMessangerService } from 'src/app/services/subject-messanger.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-movie',
@@ -14,8 +19,9 @@ export class AddMovieComponent {
     id: '', title: '', viewCount: '', likeCount: '', publishedAt: '', thumbnail: '', youtubeVideo: false, vimeoVideo: false
   }
   id: string = ''
-
-  constructor(private api: MovieApiService, private subjectMessage: SubjectMessangerService) { }
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  constructor(private api: MovieApiService, private subjectMessage: SubjectMessangerService, private _snackBar: MatSnackBar) { }
   getYoutubeMovie(id: string): void {
     this.api.getVideoFromYoutube(id).pipe(take(1)).subscribe((val: any) => {
       this.video.id = id;
@@ -26,6 +32,7 @@ export class AddMovieComponent {
       this.video.publishedAt = new Date().toString();
       this.video.thumbnail = val.items[0].snippet.thumbnails.medium.url;
       this.video.youtubeVideo = true;
+      console.log(this.video)
       this.subjectMessage.sendMessage(this.video)
     }
     )
@@ -46,7 +53,6 @@ export class AddMovieComponent {
     )
     this.resetInput();
   }
-
   checkInput(id: string): void {
     // https://www.youtube.com/watch?v=4JOAqRS_lms => 4JOAqRS_lms
     if (id.length === 43) {
@@ -76,6 +82,14 @@ export class AddMovieComponent {
       this.video.vimeoVideo = true;
       return this.getVimeoMovie(id)
     }
+    this.openSnackBar();
+  }
+  openSnackBar() {
+    this._snackBar.open('Wrong format', 'Ok', {
+      duration: 3000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
   resetInput(): void {
     this.video = {
@@ -115,22 +129,64 @@ export class AddMovieComponent {
       "vimeoVideo": false
     })
     this.subjectMessage.sendMessage({
-      "id": "109988488",
-      "title": "Jimi Hendrix ~ Are You Experienced",
+
+      "id": "WaEKXGlfYj8",
+      "title": "David Gilmour - Wish You Were Here (Live At Pompeii)",
+      "viewCount": "3032063",
+      "likeCount": "24013",
+      "publishedAt": "Mon Apr 05 2021 20:16:04 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.ytimg.com/vi/WaEKXGlfYj8/mqdefault.jpg",
+      "youtubeVideo": true,
+      "vimeoVideo": false
+
+    })
+    this.subjectMessage.sendMessage({
+      "id": "Kman7MzhC0g",
+      "title": "Sting - Roxanne (Live Aid 1985)",
+      "viewCount": "1121763",
+      "likeCount": "10043",
+      "publishedAt": "Mon Apr 05 2021 20:16:58 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.ytimg.com/vi/Kman7MzhC0g/mqdefault.jpg",
+      "youtubeVideo": true,
+      "vimeoVideo": false
+    })
+    this.subjectMessage.sendMessage({
+      "id": "527079690",
+      "title": "SEAWOLF",
       "viewCount": "",
-      "likeCount": "198",
-      "publishedAt": "Sun Apr 04 2021 15:05:33 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.vimeocdn.com/video/494090497_295x166.jpg?r=pad",
+      "likeCount": "394",
+      "publishedAt": "Mon Apr 05 2021 20:17:38 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.vimeocdn.com/video/1091141651_295x166.jpg?r=pad",
       "youtubeVideo": false,
       "vimeoVideo": true
     })
     this.subjectMessage.sendMessage({
-      "id": "530298833",
-      "title": "The Revolt",
+      "id": "485625376",
+      "title": "Hou'ley",
       "viewCount": "",
-      "likeCount": "310",
-      "publishedAt": "Sun Apr 04 2021 15:07:00 GMT+0200 (czas środkowoeuropejski letni)",
-      "thumbnail": "https://i.vimeocdn.com/video/1097668351_295x166.jpg?r=pad",
+      "likeCount": "26",
+      "publishedAt": "Mon Apr 05 2021 20:18:11 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.vimeocdn.com/video/1098676830_295x166.jpg?r=pad",
+      "youtubeVideo": false,
+      "vimeoVideo": true
+    })
+    this.subjectMessage.sendMessage({
+      "id": "529254176",
+      "title": "Lil Nas X - MONTERO (Call Me By Your Name)",
+      "viewCount": "",
+      "likeCount": "225",
+      "publishedAt": "Mon Apr 05 2021 20:19:19 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.vimeocdn.com/video/1095287599_295x166.jpg?r=pad",
+      "youtubeVideo": false,
+      "vimeoVideo": true
+    })
+    this.subjectMessage.sendMessage({
+      "id": "475800442",
+      "title": "MONATIK & LIDA LEE & NINO - РИТМОLOVE",
+      "viewCount": "",
+      "likeCount": "39",
+      "publishedAt": "Mon Apr 05 2021 20:19:41 GMT+0200 (czas środkowoeuropejski letni)",
+      "thumbnail": "https://i.vimeocdn.com/video/988849133_295x166.jpg?r=pad",
       "youtubeVideo": false,
       "vimeoVideo": true
     })

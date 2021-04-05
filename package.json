@@ -1,6 +1,8 @@
 {
   "name": "my-movies",
   "version": "0.0.0",
+  "author": "Rafał Bujok",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

@@ -23,13 +23,8 @@
   >
   </mat-paginator>
   <app-grid-movie
-    *ngIf="gridToggle"
     [videoList]="paginatorList"
     [favoriteToggle]="favoriteToggle"
+    [displayMode]="displayMode"
   ></app-grid-movie>
-  <app-list-movie
-    *ngIf="listToggle"
-    [videoList]="paginatorList"
-    [favoriteToggle]="favoriteToggle"
-  ></app-list-movie>
 </div>

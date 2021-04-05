@@ -1,6 +1,12 @@
-.videoItem {
+.grid-display {
   float: left;
-  margin: 3px;
+  margin-bottom: 40px;
+  margin-left: 10px;
   height: 360px;
   width: 330px;
+}
+.list-display {
+  margin: 3px;
+  max-height: 360px;
+  width: 100%;
 }
