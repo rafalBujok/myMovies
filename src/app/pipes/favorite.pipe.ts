@@ -2,10 +2,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Video } from '../models/video';
 
 @Pipe({
-  name: 'favoritePipe',
+  name: 'favorite',
   pure: false
 })
-export class FavoritePipePipe implements PipeTransform {
+export class FavoritePipe implements PipeTransform {
 
   transform(videolist: Video[], filter: boolean): any {
     if (!videolist || !filter) {

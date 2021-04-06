@@ -23,7 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ModalMovieComponent } from '../components/modal-movie/modal-movie.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
-import { FavoritePipePipe } from '../pipes/favorite-pipe.pipe';
+import { FavoritePipe } from '../pipes/favorite.pipe';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -46,7 +46,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       GridMovieComponent,
       ModalMovieComponent,
       VimeoUrlPipe,
-      FavoritePipePipe
+      FavoritePipe
     ],
   imports: [
     CommonModule,
@@ -84,7 +84,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ModalMovieComponent,
     YouTubePlayerModule,
     VimeoUrlPipe,
-    FavoritePipePipe,
+    FavoritePipe,
     MatButtonToggleModule,
     MatSnackBarModule
 
