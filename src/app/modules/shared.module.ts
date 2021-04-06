@@ -26,6 +26,7 @@ import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
 import { FavoritePipe } from '../pipes/favorite.pipe';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PaginatorComponent } from '../components/movies-gallery/paginator/paginator.component';
 
 
 
@@ -46,7 +47,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       GridMovieComponent,
       ModalMovieComponent,
       VimeoUrlPipe,
-      FavoritePipe
+      FavoritePipe,
+      PaginatorComponent
     ],
   imports: [
     CommonModule,
@@ -86,7 +88,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     VimeoUrlPipe,
     FavoritePipe,
     MatButtonToggleModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    PaginatorComponent
 
   ],
   providers: [MovieApiService, SubjectMessangerService],

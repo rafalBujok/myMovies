@@ -15,15 +15,8 @@
   <mat-button-toggle [value]="favoriteToggle" (click)="favoriteFilter()"
     >Favorites</mat-button-toggle
   >
-  <mat-paginator
-    [length]="paginatorLength"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="pageSizeOptions"
-    (page)="pageEvent = handlePageEvent($event)"
-  >
-  </mat-paginator>
   <app-grid-movie
-    [videoList]="paginatorList"
+    [videoList]="videoList"
     [favoriteToggle]="favoriteToggle"
     [displayMode]="displayMode"
   ></app-grid-movie>
