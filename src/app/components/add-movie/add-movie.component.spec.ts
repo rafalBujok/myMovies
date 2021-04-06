@@ -56,53 +56,53 @@ describe('AddMovieComponent', () => {
     });
     it('should send value to checkInput method', () => {
       fixture.detectChanges();
-      spy = spyOn(component, 'checkInput').and.callThrough
+      spy = spyOn(component, 'checkInput').and.callThrough;
       idInput.value = 'vJ3a_AuEW18';
       idInput.dispatchEvent(new Event('input'));
       addButton.click();
 
       expect(component.checkInput).toHaveBeenCalledWith('vJ3a_AuEW18');
-    })
+    });
     it('should send value to getYoutubeMovie method while passing id like `vJ3a_AuEW18`', () => {
       fixture.detectChanges();
-      spy = spyOn(component, 'getYoutubeMovie').and.callThrough
+      spy = spyOn(component, 'getYoutubeMovie').and.callThrough;
       idInput.value = 'vJ3a_AuEW18';
       idInput.dispatchEvent(new Event('input'));
       addButton.click();
       expect(component.getYoutubeMovie).toHaveBeenCalledWith('vJ3a_AuEW18');
-    })
+    });
     it('should send value to getYoutubeMovie method while passing id like `https://www.youtube.com/watch?v=4JOAqRS_lms`', () => {
       fixture.detectChanges();
-      spy = spyOn(component, 'getYoutubeMovie').and.callThrough
+      spy = spyOn(component, 'getYoutubeMovie').and.callThrough;
       idInput.value = 'https://www.youtube.com/watch?v=4JOAqRS_lms';
       idInput.dispatchEvent(new Event('input'));
       addButton.click();
       expect(component.getYoutubeMovie).toHaveBeenCalledWith('4JOAqRS_lms');
-    })
+    });
     it('should send value to getYoutubeMovie method while passing id like `https://youtu.be/vJ3a_AuEW18`', () => {
       fixture.detectChanges();
-      spy = spyOn(component, 'getYoutubeMovie').and.callThrough
+      spy = spyOn(component, 'getYoutubeMovie').and.callThrough;
       idInput.value = 'https://youtu.be/vJ3a_AuEW18';
       idInput.dispatchEvent(new Event('input'));
       addButton.click();
       expect(component.getYoutubeMovie).toHaveBeenCalledWith('vJ3a_AuEW18');
-    })
+    });
     it('should send value to getVimeoMovie method while passing id like `https://vimeo.com/138882294`', () => {
       fixture.detectChanges();
-      spy = spyOn(component, 'getVimeoMovie').and.callThrough
+      spy = spyOn(component, 'getVimeoMovie').and.callThrough;
       idInput.value = 'https://vimeo.com/138882294';
       idInput.dispatchEvent(new Event('input'));
       addButton.click();
       expect(component.getVimeoMovie).toHaveBeenCalledWith('138882294');
-    })
+    });
     it('should send value to getVimeoMovie method while passing id like `138882294`', () => {
       fixture.detectChanges();
-      spy = spyOn(component, 'getVimeoMovie').and.callThrough
+      spy = spyOn(component, 'getVimeoMovie').and.callThrough;
       idInput.value = '138882294';
       idInput.dispatchEvent(new Event('input'));
       addButton.click();
       expect(component.getVimeoMovie).toHaveBeenCalledWith('138882294');
-    })
+    });
   });
 
 

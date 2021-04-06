@@ -47,6 +47,7 @@ export class AddMovieComponent {
       this.video.thumbnail = val.pictures.sizes[2].link;
       this.video.vimeoVideo = true;
       this.subjectMessage.sendMessage(this.video);
+
     }
     );
     this.resetInput();
@@ -195,6 +196,16 @@ export class AddMovieComponent {
       likeCount: '22641',
       publishedAt: 'Mon Apr 05 2021 23:09:00 GMT+0200 (czas środkowoeuropejski letni)',
       thumbnail: 'https://i.ytimg.com/vi/5vUDmFjWgVo/mqdefault.jpg',
+      youtubeVideo: true,
+      vimeoVideo: false
+    });
+    this.subjectMessage.sendMessage({
+      id: 'jhdFe3evXpk',
+      title: 'Dire Straits - Brothers In Arms',
+      viewCount: '126283447',
+      likeCount: '495822',
+      publishedAt: 'Tue Apr 06 2021 23:18:33 GMT+0200 (czas środkowoeuropejski letni)',
+      thumbnail: 'https://i.ytimg.com/vi/jhdFe3evXpk/mqdefault.jpg',
       youtubeVideo: true,
       vimeoVideo: false
     });

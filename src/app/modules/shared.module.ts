@@ -26,7 +26,7 @@ import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
 import { FavoritePipe } from '../pipes/favorite.pipe';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { PaginatorComponent } from '../components/movies-gallery/paginator/paginator.component';
+import { PaginatorComponent } from '../components/movies-gallery/grid-movie/paginator/paginator.component';
 
 
 
