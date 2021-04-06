@@ -8,9 +8,9 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      declarations: [FooterComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +19,10 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create footer component', () => {
     expect(component).toBeTruthy();
+  });
+  it('should get actual year', () => {
+    expect(component.year).toEqual(new Date().getFullYear());
   });
 });

@@ -1,9 +1,16 @@
 <div class="container">
   <mat-form-field>
     <mat-label>Gimme ID</mat-label>
-    <input matInput type="text" [(ngModel)]="id" />
+    <input
+      class="idInput"
+      matInput
+      type="text"
+      [(ngModel)]="id"
+      [ngModelOptions]="{ standalone: true }"
+    />
   </mat-form-field>
-
-  <button mat-button (click)="checkInput(id)">Add</button>
-  <button mat-button (click)="getHardcodeMovies()">Get prepered movies</button>
+  <button class="addButton" mat-button (click)="checkInput(id)">Add</button>
+  <button class="button-get-prepered" mat-button (click)="getHardcodeMovies()">
+    Get prepered movies
+  </button>
 </div>

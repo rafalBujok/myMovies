@@ -19,7 +19,7 @@ describe('DisplayMovieComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create display grid movie component', () => {
     expect(component).toBeTruthy();
   });
 });

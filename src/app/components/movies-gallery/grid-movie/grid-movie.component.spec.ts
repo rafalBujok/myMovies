@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FavoritePipe } from 'src/app/pipes/favorite.pipe';
 
 import { GridMovieComponent } from './grid-movie.component';
 
@@ -8,9 +9,10 @@ describe('GridMovieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GridMovieComponent ]
+      declarations: [GridMovieComponent],
+      imports: [FavoritePipe]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('GridMovieComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create grid movie component', () => {
     expect(component).toBeTruthy();
   });
 });

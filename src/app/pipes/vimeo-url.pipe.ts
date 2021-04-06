@@ -6,7 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class VimeoUrlPipe implements PipeTransform {
 
-  constructor(protected sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   transform(value: string): any {
     const url = value.replace('vimeo.com/', 'player.vimeo.com/video/');

@@ -5,21 +5,20 @@ import { GridComponent } from './grid.component';
 describe('GridComponent', () => {
   let component: GridComponent;
   let fixture: ComponentFixture<GridComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GridComponent ]
+      declarations: [GridComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
-
   beforeEach(() => {
     fixture = TestBed.createComponent(GridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
+  it('should create grid component', () => {
     expect(component).toBeTruthy();
   });
+
+
 });

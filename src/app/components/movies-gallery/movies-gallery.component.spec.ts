@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MoviesGalleryComponent } from './movies-gallery.component';
 
 describe('MoviesGalleryComponent', () => {
@@ -8,9 +7,9 @@ describe('MoviesGalleryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MoviesGalleryComponent ]
+      declarations: [MoviesGalleryComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('MoviesGalleryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create movies gallery component', () => {
     expect(component).toBeTruthy();
   });
 });
