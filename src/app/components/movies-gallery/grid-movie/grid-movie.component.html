@@ -1,5 +1,11 @@
+<app-paginator
+  [length]="videoList.length"
+  (page)="pageEvent($event)"
+  (size)="sizeEvent($event)"
+  (index)="indexEvent($event)"
+></app-paginator>
 <div
-  *ngFor="let video of videoList | favorite: favoriteToggle"
+  *ngFor="let video of displayVideo"
   [ngClass]="{
     'grid-display': displayMode === 'grid',
     'list-display': displayMode === 'list'
