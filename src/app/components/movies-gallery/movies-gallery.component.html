@@ -10,14 +10,15 @@
     >
   </mat-button-toggle-group>
 
-  <button mat-button (click)="sortByOldest()">Oldest</button>
-  <button mat-button (click)="sortByLatest()">Latest</button>
-  <mat-button-toggle [value]="favoriteToggle" (click)="favoriteFilter()"
+  <button mat-button (click)="sort('asc')">Oldest</button>
+  <button mat-button (click)="sort('desc')">Latest</button>
+  <mat-button-toggle
+    [value]="toggleFavoriteFilter"
+    (click)="favoriteFilter(true)"
     >Favorites</mat-button-toggle
   >
   <app-grid-movie
     [videoList]="videoList"
-    [favoriteToggle]="favoriteToggle"
     [displayMode]="displayMode"
   ></app-grid-movie>
 </div>

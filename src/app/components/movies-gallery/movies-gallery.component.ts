@@ -13,7 +13,7 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   listToggle = false;
   gridToggle = true;
   displayMode = 'grid';
-  favoriteToggle = false;
+  toggleFavoriteFilter = false;
   videoList: Video[] = [];
   videoSub: Subscription | undefined;
   removeSub: Subscription | undefined;
@@ -22,9 +22,9 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
   constructor(private subjectMessage: SubjectMessangerService) { }
 
   ngOnInit(): void {
-    this.fetchVideoFromRepository();
+    this.fetchVideosFromRepository();
     this.videoSub = this.subjectMessage.getMessage().subscribe((video: Video | any) => {
-      this.pushVideoToList(video);
+      this.pushVideosToList(video);
     });
     this.removeSub = this.subjectMessage.removeSubject.subscribe((id: string | any) => {
       this.removeVideo(id);
@@ -33,35 +33,40 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
       this.favoriteVideo(id);
     });
   }
-  pushVideoToList(video: Video): void {
+  pushVideosToList(video: Video): void {
     this.videoList.push(video);
-    this.pushVideoToRepository();
+    this.pushToRepository('videoList', this.videoList);
   }
-  pushVideoToRepository(): void {
-    localStorage.setItem('videoList', JSON.stringify(this.videoList));
+  pushToRepository(location: string, value: Video[]): void {
+    localStorage.setItem(location, JSON.stringify(value));
   }
-  fetchVideoFromRepository(): void {
+  fetchVideosFromRepository(): void {
     if (localStorage.getItem('videoList')) {
       this.videoList = JSON.parse(localStorage.getItem('videoList') || '{}');
     }
   }
   removeVideo(videoId: string): void {
-
-    for (const i in this.videoList) {
-      if (this.videoList[i].id === videoId) {
-        this.videoList.splice(Number(i), 1);
-        this.pushVideoToRepository();
+    const videoList = JSON.parse(localStorage.getItem('videoList') || '{}');
+    for (const i in videoList) {
+      if (videoList[i].id === videoId) {
+        videoList.splice(Number(i), 1);
+        this.pushToRepository('videoList', videoList);
         break;
       }
     }
-
+    if (this.toggleFavoriteFilter) {
+      this.favoriteFilter(false);
+    }
+    if (!this.toggleFavoriteFilter) {
+      this.fetchVideosFromRepository();
+    }
   }
   favoriteVideo(videoId: string): void {
 
     for (const i in this.videoList) {
       if (this.videoList[i].id === videoId) {
         this.videoList[i].favorite = true;
-        this.pushVideoToRepository();
+        this.pushToRepository('videoList', this.videoList);
         break;
       }
     }
@@ -80,29 +85,47 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     this.listToggle = true;
     this.displayMode = 'list';
   }
-  sortByOldest(): void {
-    const sortFunction = (a: any, b: any) => {
-      return new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime();
-    };
-    this.videoList.sort(sortFunction);
+  sort(dir: string): void {
+    if (dir === 'asc') {
+      const sortFunction = (a: any, b: any) => {
+        return new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime();
+      };
+      this.videoList = this.videoList.sort(sortFunction);
+    }
+    if (dir === 'desc') {
+
+      const sortFunction = (a: any, b: any) => {
+        return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+      };
+      this.videoList = this.videoList.sort(sortFunction);
+    }
+
+    this.updateDisplay();
   }
-  sortByLatest(): void {
-    const sortFunction = (a: any, b: any) => {
-      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
-    };
-    this.videoList.sort(sortFunction);
+  updateDisplay(): void {
+    const newList: Video[] = this.videoList;
+    this.videoList = [];
+    setTimeout(() => { this.videoList = newList; }, 1);
   }
-  favoriteFilter(): void {
-    this.favoriteToggle = !this.favoriteToggle;
-  }
-  countFavorites(videoList: Video[]): number {
-    let counter = 0;
-    videoList.forEach(video => {
-      if (video.favorite) {
-        counter++;
-      }
-    });
-    return counter;
+  favoriteFilter(toggle: boolean): void {
+    if (toggle) {
+      this.toggleFavoriteFilter = !this.toggleFavoriteFilter;
+    }
+    if (this.toggleFavoriteFilter) {
+      const favoriteList: Video[] = [];
+      const fullList: Video[] = JSON.parse(localStorage.getItem('videoList') || '{}');
+
+      fullList.filter(video => {
+        if (video.favorite) {
+          favoriteList.push(video);
+        }
+        this.videoList = favoriteList;
+      });
+    }
+    if (!this.toggleFavoriteFilter) {
+      this.videoList = JSON.parse(localStorage.getItem('videoList') || '{}');
+    }
+
   }
   ngOnDestroy(): void {
     if (this.videoSub) {

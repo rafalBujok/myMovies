@@ -21,7 +21,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should show title in h2 tag', () => {
-    const fixture = TestBed.createComponent(HeaderComponent);
+
     const de = fixture.debugElement.query(By.css('h1'));
     expect(de.nativeElement.textContent).toEqual('MyMovies');
   });
