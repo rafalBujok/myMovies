@@ -1,7 +1,11 @@
 <mat-card *ngIf="displayMode === 'list'" class="card list-display">
   <mat-grid-list cols="3" rowHeight="80px">
     <mat-grid-tile [colspan]="1" [rowspan]="3">
-      <img mat-card-image [src]="video.thumbnail" alt="video thumbnail"
+      <img
+        (click)="openDialog(video)"
+        mat-card-image
+        [src]="video.thumbnail"
+        alt="video thumbnail"
     /></mat-grid-tile>
     <mat-grid-tile [colspan]="2" [rowspan]="1">
       <mat-card-header>
@@ -40,7 +44,11 @@
       </mat-card-header></mat-grid-tile
     >
     <mat-grid-tile [rowspan]="6"
-      ><img mat-card-image [src]="video.thumbnail" alt="video thumbnail"
+      ><img
+        (click)="openDialog(video)"
+        mat-card-image
+        [src]="video.thumbnail"
+        alt="video thumbnail"
     /></mat-grid-tile>
     <mat-grid-tile [rowspan]="1">
       <mat-card-content>

@@ -2,6 +2,9 @@
   .card {
     width: 170px;
   }
+  .mat-card-actions {
+    margin: 5px;
+  }
 }
 
 .icon {
@@ -14,4 +17,7 @@ p {
   float: left;
   margin: 0px;
   margin-top: 3px;
+}
+img {
+  cursor: pointer;
 }
