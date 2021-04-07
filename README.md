@@ -2,27 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
-Application is recruitment task, that uses:
+#### Application is recruitment task, that uses:
 
 -newest version of Angular
--angular material
--youtube API https://developers.google.com/youtube/v3/getting-started
--vimeo API https://developer.vimeo.com/api/guides/start
+-angular material -[youtube API](https://developers.google.com/youtube/v3/getting-started) -[vimeo API](https://developer.vimeo.com/api/guides/start)
 -ES6
 
-Applications task is to store users video in a page.
+#### Applications task is to store users video in a page.
 
 User can add movies via input by pasting:
 
--URL
---https://www.youtube.com/watch?v=4JOAqRS_lms
---https://youtu.be/vJ3a_AuEW18
---https://vimeo.com/138882294
--ID
+URL: -https://www.youtube.com/watch?v=4JOAqRS_lms -https://youtu.be/vJ3a_AuEW18 -https://vimeo.com/138882294
+ID:
 -vJ3a_AuEW18
 -138882294
 
-Videos should be listed with data such as:
+#### Videos should be listed with data such as:
 
 -number of plays (not avaliable in vimeo)
 -number of likes
@@ -30,13 +25,13 @@ Videos should be listed with data such as:
 -video thumbnail
 -published date
 
-and actions like:
+#### and actions like:
 
 -play(also after clicking thumbnail) open modal with video
 -delete
 -add to favorites
 
-Listed videos should:
+#### Listed videos should:
 
 -have pagination
 -switch display mode (tiles, list)
