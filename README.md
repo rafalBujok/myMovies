@@ -16,8 +16,10 @@ User can add movies via input by pasting:
 URL:
 
 - https://www.youtube.com/watch?v=4JOAqRS_lms
-- https://youtu.be/vJ3a_AuEW18 -https://vimeo.com/138882294
+- https://youtu.be/vJ3a_AuEW18
+- https://vimeo.com/138882294
   ID:
+
 - vJ3a_AuEW18
 - 138882294
 
