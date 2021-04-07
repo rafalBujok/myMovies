@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
-#### Application is recruitment task, that uses:
+#### Application uses:
 
 - newest version of Angular
 - angular material
@@ -80,7 +80,7 @@ Get your access tokens by creating account on those:
 and update
 
 ```shell
-/environment/environment.prod.ts
+/environments/environment.prod.ts
 export const environment = {
   production: true,
   youtubeKey: "yoursYoutubeKey",
@@ -89,7 +89,7 @@ export const environment = {
 ```
 
 ```shell
-/environment/environment.ts
+/environments/environment.ts
 export const environment = {
   production: false,
   youtubeKey: "yoursYoutubeKey",
