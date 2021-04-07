@@ -4,42 +4,46 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 #### Application is recruitment task, that uses:
 
--newest version of Angular
--angular material -[youtube API](https://developers.google.com/youtube/v3/getting-started) -[vimeo API](https://developer.vimeo.com/api/guides/start)
--ES6
+- newest version of Angular
+- angular material -[youtube API](https://developers.google.com/youtube/v3/getting-started)
+- [vimeo API](https://developer.vimeo.com/api/guides/start)
+- ES6
 
 #### Applications task is to store users video in a page.
 
 User can add movies via input by pasting:
 
-URL: -https://www.youtube.com/watch?v=4JOAqRS_lms -https://youtu.be/vJ3a_AuEW18 -https://vimeo.com/138882294
-ID:
--vJ3a_AuEW18
--138882294
+URL:
+
+- https://www.youtube.com/watch?v=4JOAqRS_lms
+- https://youtu.be/vJ3a_AuEW18 -https://vimeo.com/138882294
+  ID:
+- vJ3a_AuEW18
+- 138882294
 
 #### Videos should be listed with data such as:
 
--number of plays (not avaliable in vimeo)
--number of likes
--movie title
--video thumbnail
--published date
+- number of plays (not avaliable in vimeo)
+- number of likes
+- movie title
+- video thumbnail
+- published date
 
 #### and actions like:
 
--play(also after clicking thumbnail) open modal with video
--delete
--add to favorites
+- play(also after clicking thumbnail) open modal with video
+- delete
+- add to favorites
 
 #### Listed videos should:
 
--have pagination
--switch display mode (tiles, list)
--be able to delete all movies
--load hardcoded list of movies
--only favorite filter
--sort by oldest/latest
--stay in application after closeing and re-opening
+- have pagination
+- switch display mode (tiles, list)
+- be able to delete all movies
+- load hardcoded list of movies
+- only favorite filter
+- sort by oldest/latest
+- stay in application after closeing and re-opening
 
 ## Running unit tests
 
