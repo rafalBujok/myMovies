@@ -22,7 +22,9 @@ export class MovieApiService {
   getMovieFromVimeo(id: string): Observable<object> {
     const headers = { Authorization: 'Bearer ' + this.vimeoToken };
     const url: string = 'https://api.vimeo.com/videos/' + id;
-    return this.http.get(url, { headers });
+    return this.http.get(url, { headers }).pipe(map((res) => {
+      return res;
+    }));;
 
   }
 }

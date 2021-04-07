@@ -49,9 +49,7 @@ ID:
 - sort by oldest/latest
 - stay in application after closeing and re-opening
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### [Demo](https://rafalbujok.github.io/myMovies/)
 
 ## Get started
 

@@ -24,27 +24,37 @@ export class AddMovieComponent {
   constructor(private api: MovieApiService, private subjectMessage: SubjectMessangerService, private snackBar: MatSnackBar) { }
   getYoutubeMovie(id: string): void {
     this.api.getVideoFromYoutube(id).pipe(take(1)).subscribe((val: any) => {
-      this.video.id = id;
-      this.video.title = val.items[0].snippet.title;
-      this.video.viewCount = val.items[0].statistics.viewCount;
-      this.video.likeCount = val.items[0].statistics.likeCount;
-      this.video.publishedAt = val.items[0].snippet.publishedAt;
-      this.video.thumbnail = val.items[0].snippet.thumbnails.medium.url;
-      this.video.youtubeVideo = true;
-      this.subjectMessage.sendMessage(this.video);
+      if (val.item) {
+        this.video.id = id;
+        this.video.title = val.items[0].snippet.title;
+        this.video.viewCount = val.items[0].statistics.viewCount;
+        this.video.likeCount = val.items[0].statistics.likeCount;
+        this.video.publishedAt = val.items[0].snippet.publishedAt;
+        this.video.thumbnail = val.items[0].snippet.thumbnails.medium.url;
+        this.video.youtubeVideo = true;
+        this.subjectMessage.sendMessage(this.video);
+      }
+      if (!val.item) {
+        this.openSnackBar('wrong link/id')
+      }
     }
     );
     this.resetInput();
   }
   getVimeoMovie(id: string): void {
     this.api.getMovieFromVimeo(id).pipe(take(1)).subscribe((val: any) => {
-      this.video.id = id;
-      this.video.title = val.name;
-      this.video.likeCount = val.metadata.connections.likes.total.toString();
-      this.video.publishedAt = val.created_time;
-      this.video.thumbnail = val.pictures.sizes[2].link;
-      this.video.vimeoVideo = true;
-      this.subjectMessage.sendMessage(this.video);
+      if (val) {
+        this.video.id = id;
+        this.video.title = val.name;
+        this.video.likeCount = val.metadata.connections.likes.total.toString();
+        this.video.publishedAt = val.created_time;
+        this.video.thumbnail = val.pictures.sizes[2].link;
+        this.video.vimeoVideo = true;
+        this.subjectMessage.sendMessage(this.video);
+      }
+      if (!val) {
+        this.openSnackBar('wrong link/id')
+      }
 
     }
     );
@@ -79,10 +89,10 @@ export class AddMovieComponent {
       this.video.vimeoVideo = true;
       return this.getVimeoMovie(id);
     }
-    this.openSnackBar();
+    this.openSnackBar('wrong format');
   }
-  openSnackBar(): void {
-    this.snackBar.open('Wrong format', 'Ok', {
+  openSnackBar(text: string): void {
+    this.snackBar.open(text, 'Ok', {
       duration: 3000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
