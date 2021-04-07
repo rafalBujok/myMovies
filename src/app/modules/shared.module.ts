@@ -23,7 +23,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ModalMovieComponent } from '../components/modal-movie/modal-movie.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
-import { FavoritePipe } from '../pipes/favorite.pipe';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PaginatorComponent } from '../components/movies-gallery/grid-movie/paginator/paginator.component';
@@ -47,7 +46,6 @@ import { PaginatorComponent } from '../components/movies-gallery/grid-movie/pagi
       GridMovieComponent,
       ModalMovieComponent,
       VimeoUrlPipe,
-      FavoritePipe,
       PaginatorComponent
     ],
   imports: [
@@ -86,7 +84,6 @@ import { PaginatorComponent } from '../components/movies-gallery/grid-movie/pagi
     ModalMovieComponent,
     YouTubePlayerModule,
     VimeoUrlPipe,
-    FavoritePipe,
     MatButtonToggleModule,
     MatSnackBarModule,
     PaginatorComponent

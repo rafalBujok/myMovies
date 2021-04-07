@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "author": "Rafał Bujok",
   "license": "MIT",
+  "description": "Video app that let you keep youtube/vimeo videos in one place, and allow to play it",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

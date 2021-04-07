@@ -1,6 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FavoritePipe } from 'src/app/pipes/favorite.pipe';
-
 import { GridMovieComponent } from './grid-movie.component';
 
 describe('GridMovieComponent', () => {
@@ -9,8 +7,8 @@ describe('GridMovieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GridMovieComponent],
-      imports: [FavoritePipe]
+      declarations: [GridMovieComponent]
+
     })
       .compileComponents();
   });
