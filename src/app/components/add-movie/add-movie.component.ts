@@ -28,8 +28,7 @@ export class AddMovieComponent {
       this.video.title = val.items[0].snippet.title;
       this.video.viewCount = val.items[0].statistics.viewCount;
       this.video.likeCount = val.items[0].statistics.likeCount;
-      // this.video.publishedAt = val.items[0].snippet.publishedAt;
-      this.video.publishedAt = new Date().toString();
+      this.video.publishedAt = val.items[0].snippet.publishedAt;
       this.video.thumbnail = val.items[0].snippet.thumbnails.medium.url;
       this.video.youtubeVideo = true;
       this.subjectMessage.sendMessage(this.video);
@@ -42,8 +41,7 @@ export class AddMovieComponent {
       this.video.id = id;
       this.video.title = val.name;
       this.video.likeCount = val.metadata.connections.likes.total.toString();
-      // this.video.publishedAt = val.created_time;
-      this.video.publishedAt = new Date().toString();
+      this.video.publishedAt = val.created_time;
       this.video.thumbnail = val.pictures.sizes[2].link;
       this.video.vimeoVideo = true;
       this.subjectMessage.sendMessage(this.video);
@@ -102,7 +100,7 @@ export class AddMovieComponent {
       title: `Status Quo - Rockin' All Over The World(Live Aid 1985)`,
       viewCount: '3054361',
       likeCount: '10642',
-      publishedAt: 'Sun Apr 04 2021 14:57:25 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2018-09-21T09:30:00Z',
       thumbnail: 'https://i.ytimg.com/vi/eEO6v-YiS00/mqdefault.jpg',
       youtubeVideo: true,
       vimeoVideo: false
@@ -112,7 +110,7 @@ export class AddMovieComponent {
       title: 'Dire Straits - Sultans Of Swing (Alchemy Live)',
       viewCount: '173375976',
       likeCount: '781286',
-      publishedAt: 'Sun Apr 04 2021 15:02:16 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2010-04-20T12:00:41Z',
       thumbnail: 'https://i.ytimg.com/vi/8Pa9x9fZBtY/mqdefault.jpg',
       youtubeVideo: true,
       vimeoVideo: false
@@ -122,7 +120,7 @@ export class AddMovieComponent {
       title: 'Free Bird',
       viewCount: '30750980',
       likeCount: '295352',
-      publishedAt: 'Sun Apr 04 2021 15:03:20 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2018-07-31T12:06:53Z',
       thumbnail: 'https://i.ytimg.com/vi/CqnU_sJ8V-E/mqdefault.jpg',
       youtubeVideo: true,
       vimeoVideo: false
@@ -133,7 +131,7 @@ export class AddMovieComponent {
       title: 'David Gilmour - Wish You Were Here (Live At Pompeii)',
       viewCount: '3032063',
       likeCount: '24013',
-      publishedAt: 'Mon Apr 05 2021 20:16:04 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2019-05-10T16:00:09Z',
       thumbnail: 'https://i.ytimg.com/vi/WaEKXGlfYj8/mqdefault.jpg',
       youtubeVideo: true,
       vimeoVideo: false
@@ -144,7 +142,7 @@ export class AddMovieComponent {
       title: 'Sting - Roxanne (Live Aid 1985)',
       viewCount: '1121763',
       likeCount: '10043',
-      publishedAt: 'Mon Apr 05 2021 20:16:58 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2018-09-21T09:30:00Z',
       thumbnail: 'https://i.ytimg.com/vi/Kman7MzhC0g/mqdefault.jpg',
       youtubeVideo: true,
       vimeoVideo: false
@@ -154,7 +152,7 @@ export class AddMovieComponent {
       title: 'SEAWOLF',
       viewCount: '',
       likeCount: '394',
-      publishedAt: 'Mon Apr 05 2021 20:17:38 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2021-03-22T01:50:51+00:00',
       thumbnail: 'https://i.vimeocdn.com/video/1091141651_295x166.jpg?r=pad',
       youtubeVideo: false,
       vimeoVideo: true
@@ -164,7 +162,7 @@ export class AddMovieComponent {
       title: `Hou'ley`,
       viewCount: '',
       likeCount: '26',
-      publishedAt: 'Mon Apr 05 2021 20:18:11 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2020-11-30T19:00:55+00:00',
       thumbnail: 'https://i.vimeocdn.com/video/1098676830_295x166.jpg?r=pad',
       youtubeVideo: false,
       vimeoVideo: true
@@ -174,7 +172,7 @@ export class AddMovieComponent {
       title: 'Lil Nas X - MONTERO (Call Me By Your Name)',
       viewCount: '',
       likeCount: '225',
-      publishedAt: 'Mon Apr 05 2021 20:19:19 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2021-03-26T09:07:03+00:00',
       thumbnail: 'https://i.vimeocdn.com/video/1095287599_295x166.jpg?r=pad',
       youtubeVideo: false,
       vimeoVideo: true
@@ -184,7 +182,7 @@ export class AddMovieComponent {
       title: 'MONATIK & LIDA LEE & NINO - РИТМОLOVE',
       viewCount: '',
       likeCount: '39',
-      publishedAt: 'Mon Apr 05 2021 20:19:41 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2007-06-15T00:50:36Z',
       thumbnail: 'https://i.vimeocdn.com/video/988849133_295x166.jpg?r=pad',
       youtubeVideo: false,
       vimeoVideo: true
@@ -194,7 +192,7 @@ export class AddMovieComponent {
       title: 'Dire Straits - Brothers in Arms Mandela Live 1988',
       viewCount: '7693687',
       likeCount: '22641',
-      publishedAt: 'Mon Apr 05 2021 23:09:00 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2007-06-15T00:50:36Z',
       thumbnail: 'https://i.ytimg.com/vi/5vUDmFjWgVo/mqdefault.jpg',
       youtubeVideo: true,
       vimeoVideo: false
@@ -204,7 +202,7 @@ export class AddMovieComponent {
       title: 'Dire Straits - Brothers In Arms',
       viewCount: '126283447',
       likeCount: '495822',
-      publishedAt: 'Tue Apr 06 2021 23:18:33 GMT+0200 (czas środkowoeuropejski letni)',
+      publishedAt: '2010-02-23T17:30:38Z',
       thumbnail: 'https://i.ytimg.com/vi/jhdFe3evXpk/mqdefault.jpg',
       youtubeVideo: true,
       vimeoVideo: false
