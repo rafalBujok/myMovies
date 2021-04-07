@@ -5,7 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 #### Application is recruitment task, that uses:
 
 - newest version of Angular
-- angular material -[youtube API](https://developers.google.com/youtube/v3/getting-started)
+- angular material
+- [youtube API](https://developers.google.com/youtube/v3/getting-started)
 - [vimeo API](https://developer.vimeo.com/api/guides/start)
 - ES6
 
@@ -18,7 +19,8 @@ URL:
 - https://www.youtube.com/watch?v=4JOAqRS_lms
 - https://youtu.be/vJ3a_AuEW18
 - https://vimeo.com/138882294
-  ID:
+
+ID:
 
 - vJ3a_AuEW18
 - 138882294
@@ -72,8 +74,8 @@ npm i
 
 Get your access tokens by creating account on those:
 
-https://developers.google.com/youtube/v3/getting-started
-https://developer.vimeo.com/api/guides/start
+- https://developers.google.com/youtube/v3/getting-started
+- https://developer.vimeo.com/api/guides/start
 
 and update
 
