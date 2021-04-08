@@ -4,11 +4,11 @@ import { Video } from 'src/app/models/video';
 
 @Component({
   selector: 'app-grid-movie',
-  templateUrl: './grid-movie.component.html',
-  styleUrls: ['./grid-movie.component.scss'],
+  templateUrl: './grid-movies.component.html',
+  styleUrls: ['./grid-movies.component.scss'],
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class GridMovieComponent {
+export class GridMoviesComponent {
 
   @Input() videoList: Video[] = [];
   @Input() displayMode = 'tile';
@@ -18,14 +18,17 @@ export class GridMovieComponent {
   pageEvent(event: PageEvent): void {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
-    this.displayVideo = this.videoList.slice(this.pageIndex * this.pageSize, (this.pageIndex * this.pageSize) + this.pageSize);
+    this.updatePaginatorDisplay();
   }
   sizeEvent(event: number): void {
     this.pageSize = event;
-    this.displayVideo = this.videoList.slice(this.pageIndex * this.pageSize, (this.pageIndex * this.pageSize) + this.pageSize);
+    this.updatePaginatorDisplay();
   }
   indexEvent(event: number): void {
     this.pageIndex = event;
+    this.updatePaginatorDisplay();
+  }
+  updatePaginatorDisplay(): void {
     this.displayVideo = this.videoList.slice(this.pageIndex * this.pageSize, (this.pageIndex * this.pageSize) + this.pageSize);
   }
 

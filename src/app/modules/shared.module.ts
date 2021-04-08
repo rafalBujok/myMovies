@@ -18,7 +18,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ShortNumberPipe } from '../pipes/short-number.pipe';
-import { GridMovieComponent } from '../components/movies-gallery/grid-movie/grid-movie.component';
+import { GridMoviesComponent } from '../components/movies-gallery/grid-movie/grid-movies.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalMovieComponent } from '../components/modal-movie/modal-movie.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
@@ -43,7 +43,7 @@ import { PaginatorComponent } from '../components/movies-gallery/grid-movie/pagi
       AddMovieComponent,
       DisplayGridMovieComponent,
       ShortNumberPipe,
-      GridMovieComponent,
+      GridMoviesComponent,
       ModalMovieComponent,
       VimeoUrlPipe,
       PaginatorComponent
@@ -79,7 +79,7 @@ import { PaginatorComponent } from '../components/movies-gallery/grid-movie/pagi
     MatCardModule,
     MatIconModule,
     ShortNumberPipe,
-    GridMovieComponent,
+    GridMoviesComponent,
     MatDialogModule,
     ModalMovieComponent,
     YouTubePlayerModule,
