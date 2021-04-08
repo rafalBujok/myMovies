@@ -5,6 +5,7 @@
   (index)="indexEvent($event)"
 ></app-paginator>
 <div
+  class="videoList"
   *ngFor="let video of displayVideo"
   [ngClass]="{
     'tile-display': displayMode === 'tile',

@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { By } from '@angular/platform-browser';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 import { ShortNumberPipe } from 'src/app/pipes/short-number.pipe';
 
 import { DisplayGridMovieComponent } from './display-grid-movie.component';
