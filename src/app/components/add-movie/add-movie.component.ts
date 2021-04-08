@@ -56,6 +56,8 @@ export class AddMovieComponent {
         this.openSnackBar('wrong link/id')
       }
 
+    }, (error) => {
+      this.openSnackBar('wrong link/id')
     }
     );
     this.resetInput();

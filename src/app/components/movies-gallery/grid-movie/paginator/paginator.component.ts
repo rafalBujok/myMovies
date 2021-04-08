@@ -15,6 +15,7 @@ export class PaginatorComponent implements OnChanges {
   @Output() size = new EventEmitter<number>();
   @Output() index = new EventEmitter<number>();
   pageSizeOptions: number[] = [5, 10, 25, 100];
+  showFirstLastButtons = true;
   handlePageEvent(event: PageEvent): void {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
