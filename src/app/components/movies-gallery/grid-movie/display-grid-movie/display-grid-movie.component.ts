@@ -11,7 +11,7 @@ import { SubjectMessangerService } from 'src/app/services/subject-messanger.serv
 })
 export class DisplayGridMovieComponent {
   @Input() video: Video = { id: '', title: '', viewCount: '', likeCount: '', publishedAt: '', thumbnail: '' };
-  @Input() displayMode = 'grid';
+  @Input() displayMode = 'tile';
 
   constructor(private messanger: SubjectMessangerService, public dialog: MatDialog) { }
 

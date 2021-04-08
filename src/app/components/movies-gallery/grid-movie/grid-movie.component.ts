@@ -11,7 +11,7 @@ import { Video } from 'src/app/models/video';
 export class GridMovieComponent {
 
   @Input() videoList: Video[] = [];
-  @Input() displayMode = 'grid';
+  @Input() displayMode = 'tile';
   displayVideo: Video[] = [];
   pageIndex = 0;
   pageSize = 10;
