@@ -11,8 +11,8 @@ import { SubjectMessangerService } from 'src/app/services/subject-messanger.serv
 export class MoviesGalleryComponent implements OnInit, OnDestroy {
 
   listToggle = false;
-  gridToggle = true;
-  displayMode = 'grid';
+  tileToggle = true;
+  displayMode = 'tile';
   toggleFavoriteFilter = false;
   videoList: Video[] = [];
   videoSub: Subscription | undefined;
@@ -75,13 +75,13 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
     this.videoList = [];
     localStorage.clear();
   }
-  showGrid(): void {
-    this.gridToggle = true;
+  showTile(): void {
+    this.tileToggle = true;
     this.listToggle = false;
-    this.displayMode = 'grid';
+    this.displayMode = 'tile';
   }
   showList(): void {
-    this.gridToggle = false;
+    this.tileToggle = false;
     this.listToggle = true;
     this.displayMode = 'list';
   }
