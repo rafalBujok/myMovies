@@ -2,10 +2,16 @@
   <app-add-movie></app-add-movie>
   <button mat-button (click)="clearList()">Clear all</button>
   <mat-button-toggle-group>
-    <mat-button-toggle [value]="listToggle" (click)="showList()"
+    <mat-button-toggle
+      class="toggleListButton"
+      [value]="listToggle"
+      (click)="showList()"
       >List</mat-button-toggle
     >
-    <mat-button-toggle [value]="tileToggle" (click)="showTile()"
+    <mat-button-toggle
+      class="toggleTileButton"
+      [value]="tileToggle"
+      (click)="showTile()"
       >Tiles</mat-button-toggle
     >
   </mat-button-toggle-group>

@@ -24,7 +24,7 @@ export class MovieApiService {
     const url: string = 'https://api.vimeo.com/videos/' + id;
     return this.http.get(url, { headers }).pipe(map((res) => {
       return res;
-    }));;
+    }));
 
   }
 }
