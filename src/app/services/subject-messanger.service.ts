@@ -10,11 +10,8 @@ export class SubjectMessangerService {
   videoSubject = new Subject();
   removeSubject = new Subject();
   favoriteSubject = new Subject();
-  sendMessage(video: Video): void {
+  sendVideo(video: Video): void {
     this.videoSubject.next(video);
-  }
-  getMessage(): Observable<unknown> {
-    return this.videoSubject.asObservable();
   }
   removeVideo(id: string): void {
     this.removeSubject.next(id);
@@ -22,6 +19,7 @@ export class SubjectMessangerService {
   favoriteVideo(id: string): void {
     this.favoriteSubject.next(id);
   }
-
-
+  getVideo(): Observable<unknown> {
+    return this.videoSubject.asObservable();
+  }
 }

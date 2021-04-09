@@ -23,7 +23,7 @@ export class MoviesGalleryComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fetchVideosFromRepository();
-    this.videoSub = this.subjectMessage.getMessage().subscribe((video: Video | any) => {
+    this.videoSub = this.subjectMessage.getVideo().subscribe((video: Video | any) => {
       this.pushVideosToList(video);
     });
     this.removeSub = this.subjectMessage.removeSubject.subscribe((id: string | any) => {
