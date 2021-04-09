@@ -24,7 +24,7 @@ export class AddMovieComponent {
   constructor(private api: MovieApiService, private subjectMessage: SubjectMessangerService, private snackBar: MatSnackBar) { }
   getYoutubeMovie(id: string): void {
     this.api.getVideoFromYoutube(id).pipe(take(1)).subscribe((val: any) => {
-      if (val.item) {
+      if (val.items.length > 0) {
         this.video.id = id;
         this.video.title = val.items[0].snippet.title;
         this.video.viewCount = val.items[0].statistics.viewCount;
@@ -32,9 +32,9 @@ export class AddMovieComponent {
         this.video.publishedAt = val.items[0].snippet.publishedAt;
         this.video.thumbnail = val.items[0].snippet.thumbnails.medium.url;
         this.video.youtubeVideo = true;
-        this.subjectMessage.sendMessage(this.video);
+        this.subjectMessage.sendVideo(this.video);
       }
-      if (!val.item) {
+      if (val.items.length === 0) {
         this.openSnackBar('wrong link/id');
       }
     }
@@ -50,7 +50,7 @@ export class AddMovieComponent {
         this.video.publishedAt = val.created_time;
         this.video.thumbnail = val.pictures.sizes[2].link;
         this.video.vimeoVideo = true;
-        this.subjectMessage.sendMessage(this.video);
+        this.subjectMessage.sendVideo(this.video);
       }
       if (!val) {
         this.openSnackBar('wrong link/id');
@@ -107,7 +107,7 @@ export class AddMovieComponent {
     this.id = '';
   }
   getHardcodeMovies(): void {
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
       id: 'eEO6v-YiS00',
       title: `Status Quo - Rockin' All Over The World(Live Aid 1985)`,
       viewCount: '3054361',
@@ -117,7 +117,7 @@ export class AddMovieComponent {
       youtubeVideo: true,
       vimeoVideo: false
     });
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
       id: '8Pa9x9fZBtY',
       title: 'Dire Straits - Sultans Of Swing (Alchemy Live)',
       viewCount: '173375976',
@@ -127,7 +127,7 @@ export class AddMovieComponent {
       youtubeVideo: true,
       vimeoVideo: false
     });
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
       id: 'CqnU_sJ8V-E',
       title: 'Free Bird',
       viewCount: '30750980',
@@ -137,7 +137,7 @@ export class AddMovieComponent {
       youtubeVideo: true,
       vimeoVideo: false
     });
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
 
       id: 'WaEKXGlfYj8',
       title: 'David Gilmour - Wish You Were Here (Live At Pompeii)',
@@ -149,7 +149,7 @@ export class AddMovieComponent {
       vimeoVideo: false
 
     });
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
       id: 'Kman7MzhC0g',
       title: 'Sting - Roxanne (Live Aid 1985)',
       viewCount: '1121763',
@@ -159,7 +159,7 @@ export class AddMovieComponent {
       youtubeVideo: true,
       vimeoVideo: false
     });
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
       id: '527079690',
       title: 'SEAWOLF',
       viewCount: '',
@@ -169,7 +169,7 @@ export class AddMovieComponent {
       youtubeVideo: false,
       vimeoVideo: true
     });
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
       id: '485625376',
       title: `Hou'ley`,
       viewCount: '',
@@ -179,7 +179,7 @@ export class AddMovieComponent {
       youtubeVideo: false,
       vimeoVideo: true
     });
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
       id: '529254176',
       title: 'Lil Nas X - MONTERO (Call Me By Your Name)',
       viewCount: '',
@@ -189,7 +189,7 @@ export class AddMovieComponent {
       youtubeVideo: false,
       vimeoVideo: true
     });
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
       id: '475800442',
       title: 'MONATIK & LIDA LEE & NINO - РИТМОLOVE',
       viewCount: '',
@@ -199,7 +199,7 @@ export class AddMovieComponent {
       youtubeVideo: false,
       vimeoVideo: true
     });
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
       id: '5vUDmFjWgVo',
       title: 'Dire Straits - Brothers in Arms Mandela Live 1988',
       viewCount: '7693687',
@@ -209,7 +209,7 @@ export class AddMovieComponent {
       youtubeVideo: true,
       vimeoVideo: false
     });
-    this.subjectMessage.sendMessage({
+    this.subjectMessage.sendVideo({
       id: 'jhdFe3evXpk',
       title: 'Dire Straits - Brothers In Arms',
       viewCount: '126283447',

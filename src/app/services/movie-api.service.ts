@@ -9,11 +9,14 @@ import { Observable } from 'rxjs';
 })
 export class MovieApiService {
   private youtubeKey: string = environment.youtubeKey;
+  readonly youtubeUrl = 'https://www.googleapis.com/youtube/v3/videos'
   private vimeoToken: string = environment.vimeoAccessToken;
+  readonly vimeoUrl = 'https://api.vimeo.com/videos/'
+
   constructor(private http: HttpClient) { }
 
   getVideoFromYoutube(id: string): Observable<object> {
-    const url: string = 'https://www.googleapis.com/youtube/v3/videos?id=' + id + '&key=' + this.youtubeKey + '&part=snippet,statistics';
+    const url: string = `${this.youtubeUrl}?id=${id}&key=${this.youtubeKey}&part=snippet,statistics`;
     return this.http.get(url)
       .pipe(map((res) => {
         return res;
@@ -21,7 +24,7 @@ export class MovieApiService {
   }
   getMovieFromVimeo(id: string): Observable<object> {
     const headers = { Authorization: 'Bearer ' + this.vimeoToken };
-    const url: string = 'https://api.vimeo.com/videos/' + id;
+    const url: string = `${this.vimeoUrl}${id}`;
     return this.http.get(url, { headers }).pipe(map((res) => {
       return res;
     }));
