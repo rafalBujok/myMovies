@@ -35,7 +35,7 @@ export class AddMovieComponent {
         this.subjectMessage.sendMessage(this.video);
       }
       if (!val.item) {
-        this.openSnackBar('wrong link/id')
+        this.openSnackBar('wrong link/id');
       }
     }
     );
@@ -53,11 +53,11 @@ export class AddMovieComponent {
         this.subjectMessage.sendMessage(this.video);
       }
       if (!val) {
-        this.openSnackBar('wrong link/id')
+        this.openSnackBar('wrong link/id');
       }
 
     }, (error) => {
-      this.openSnackBar('wrong link/id')
+      this.openSnackBar('wrong link/id');
     }
     );
     this.resetInput();
