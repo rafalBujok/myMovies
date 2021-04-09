@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { take } from 'rxjs/operators';
-import { Video } from 'src/app/models/video';
-import { MovieApiService } from 'src/app/services/movie-api.service';
-import { SubjectMessangerService } from 'src/app/services/subject-messanger.service';
+import { Video } from '@models/video';
+import { MovieApiService } from '@services/movie-api.service';
+import { SubjectMessangerService } from '@services/subject-messanger.service';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,

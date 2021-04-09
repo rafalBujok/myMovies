@@ -1,37 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { GridComponent } from '../components/grid/grid.component';
-import { FooterComponent } from '../components/grid/footer/footer.component';
-import { HeaderComponent } from '../components/grid/header/header.component';
-import { AddMovieComponent } from '../components/add-movie/add-movie.component';
-import { MoviesGalleryComponent } from '../components/movies-gallery/movies-gallery.component';
-import { MovieApiService } from '../../app/services/movie-api.service';
+import { GridComponent } from '@components/grid/grid.component';
+import { FooterComponent } from '@components/grid/footer/footer.component';
+import { HeaderComponent } from '@components/grid/header/header.component';
+import { AddMovieComponent } from '@components/add-movie/add-movie.component';
+import { MoviesGalleryComponent } from '@components/movies-gallery/movies-gallery.component';
+import { MovieApiService } from '@services/movie-api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { SubjectMessangerService } from '../services/subject-messanger.service';
+import { SubjectMessangerService } from '@services/subject-messanger.service';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 
-import { DisplayGridMovieComponent } from '../components/movies-gallery/grid-movie/display-grid-movie/display-grid-movie.component';
+import { DisplayGridMovieComponent } from '@components/movies-gallery/grid-movie/display-grid-movie/display-grid-movie.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { ShortNumberPipe } from '../pipes/short-number.pipe';
-import { GridMoviesComponent } from '../components/movies-gallery/grid-movie/grid-movies.component';
+import { ShortNumberPipe } from '@pipes/short-number.pipe';
+import { GridMoviesComponent } from '@components/movies-gallery/grid-movie/grid-movies.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ModalMovieComponent } from '../components/modal-movie/modal-movie.component';
+import { ModalMovieComponent } from '@components/modal-movie/modal-movie.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-import { VimeoUrlPipe } from '../pipes/vimeo-url.pipe';
+import { VimeoUrlPipe } from '@pipes/vimeo-url.pipe';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { PaginatorComponent } from '../components/movies-gallery/grid-movie/paginator/paginator.component';
-
-
-
-
-
-
+import { PaginatorComponent } from '@components/movies-gallery/grid-movie/paginator/paginator.component';
 
 @NgModule({
   declarations:
@@ -62,8 +56,6 @@ import { PaginatorComponent } from '../components/movies-gallery/grid-movie/pagi
     YouTubePlayerModule,
     MatButtonToggleModule,
     MatSnackBarModule
-
-
   ],
   exports: [
     GridComponent,

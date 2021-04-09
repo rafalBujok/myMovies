@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Video } from 'src/app/models/video';
-import { SubjectMessangerService } from 'src/app/services/subject-messanger.service';
+import { Video } from '@models/video';
+import { SubjectMessangerService } from '@services/subject-messanger.service';
 
 @Component({
   selector: 'app-movies-gallery',

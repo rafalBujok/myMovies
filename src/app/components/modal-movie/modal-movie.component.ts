@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Video } from 'src/app/models/video';
+import { Video } from '@models/video';
 
 
 

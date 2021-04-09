@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalMovieComponent } from 'src/app/components/modal-movie/modal-movie.component';
-import { Video } from 'src/app/models/video';
-import { SubjectMessangerService } from 'src/app/services/subject-messanger.service';
+import { ModalMovieComponent } from '@components/modal-movie/modal-movie.component';
+import { Video } from '@models/video';
+import { SubjectMessangerService } from '@services/subject-messanger.service';
 
 @Component({
   selector: 'app-display-grid-movie',

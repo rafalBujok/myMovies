@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Video } from '../models/video';
+import { Video } from '@models/video';
 
 @Injectable({
   providedIn: 'root'

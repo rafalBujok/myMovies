@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { Video } from 'src/app/models/video';
+import { Video } from '@models/video';
 
 @Component({
   selector: 'app-grid-movie',
